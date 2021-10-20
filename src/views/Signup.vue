@@ -6,19 +6,19 @@
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
       <div>
-        <label>Name:</label>
+        <label>Name:&nbsp;</label>
         <input type="text" v-model="newUserParams.name" />
       </div>
       <div>
-        <label>Email:</label>
+        <label>Email:&nbsp;</label>
         <input type="email" v-model="newUserParams.email" />
       </div>
       <div>
-        <label>Password:</label>
+        <label>Password:&nbsp;</label>
         <input type="password" v-model="newUserParams.password" />
       </div>
       <div>
-        <label>Confirm Password:</label>
+        <label>Confirm Password:&nbsp;</label>
         <input type="password" v-model="newUserParams.password_confirmation" />
       </div>
       <input type="submit" value="Submit" />
