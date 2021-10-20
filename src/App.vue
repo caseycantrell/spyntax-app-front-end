@@ -4,6 +4,12 @@
       <router-link to="/">Home</router-link>
       |
       <router-link to="/about">About</router-link>
+      |
+      <router-link to="/signup">Signup</router-link>
+      |
+      <router-link to="/login">Login</router-link>
+      |
+      <router-link to="/logout">Logout</router-link>
     </div>
     <router-view />
   </div>
@@ -31,3 +37,19 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  data: function () {
+    return {};
+  },
+  methods: {
+    isLoggedIn: function () {
+      return localStorage.jwt;
+    },
+    getUserId: function () {
+      return localStorage.user_id;
+    },
+  },
+};
+</script>
