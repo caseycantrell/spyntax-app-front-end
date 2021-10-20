@@ -18,7 +18,7 @@
         <input type="password" v-model="newUserParams.password" />
       </div>
       <div>
-        <label>Password confirmation:</label>
+        <label>Confirm Password:</label>
         <input type="password" v-model="newUserParams.password_confirmation" />
       </div>
       <input type="submit" value="Submit" />
