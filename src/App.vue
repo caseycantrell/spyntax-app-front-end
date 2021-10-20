@@ -5,11 +5,11 @@
       |
       <router-link to="/about">About</router-link>
       |
-      <router-link to="/signup">Signup</router-link>
+      <router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link>
       |
-      <router-link to="/login">Login</router-link>
+      <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
       |
-      <router-link to="/logout">Logout</router-link>
+      <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
     </div>
     <router-view />
   </div>

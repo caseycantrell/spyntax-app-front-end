@@ -39,7 +39,7 @@ export default {
   methods: {
     submit: function () {
       axios
-        .post("/users", this.newUserParams)
+        .post("/djs", this.newUserParams)
         .then((response) => {
           console.log(response.data);
           this.$router.push("/login");

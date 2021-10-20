@@ -35,13 +35,13 @@ export default {
         .then((response) => {
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          this.$router.push("/");
+          localStorage.setItem("dj_id", response.data.dj_id);
+          this.$router.push("/home");
         })
         .catch((error) => {
           console.log(error.response);
           this.errors = ["Invalid email or password."];
-          this.email = "";
-          this.password = "";
+          this.newSessionParams = {};
         });
     },
   },
