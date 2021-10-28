@@ -6,20 +6,20 @@
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
       <div>
-        <label>Name:&nbsp;</label>
-        <input type="text" v-model="newUserParams.name" />
+        <label>DJ Name:&nbsp;</label>
+        <input type="text" v-model="newDJParams.dj_name" />
       </div>
       <div>
         <label>Email:&nbsp;</label>
-        <input type="email" v-model="newUserParams.email" />
+        <input type="email" v-model="newDJParams.email" />
       </div>
       <div>
         <label>Password:&nbsp;</label>
-        <input type="password" v-model="newUserParams.password" />
+        <input type="password" v-model="newDJParams.password" />
       </div>
       <div>
         <label>Confirm Password:&nbsp;</label>
-        <input type="password" v-model="newUserParams.password_confirmation" />
+        <input type="password" v-model="newDJParams.password_confirmation" />
       </div>
       <input type="submit" value="Submit" />
     </form>
@@ -32,14 +32,19 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newUserParams: {},
+      newDJParams: {
+        dj_name: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+      },
       errors: [],
     };
   },
   methods: {
     submit: function () {
       axios
-        .post("/djs", this.newUserParams)
+        .post("/djs", this.newDJParams)
         .then((response) => {
           console.log(response.data);
           this.$router.push("/login");
