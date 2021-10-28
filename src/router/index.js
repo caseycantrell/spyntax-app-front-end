@@ -1,9 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Signup from "../views/Signup.vue";
+import DJSignup from "../views/DJSignup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import RequestsIndex from "../views/RequestsIndex.vue";
 
 Vue.use(VueRouter);
 
@@ -14,9 +15,9 @@ const routes = [
     component: Home,
   },
   {
-    path: "/signup",
-    name: "Signup",
-    component: Signup,
+    path: "/djsignup",
+    name: "DJ Signup",
+    component: DJSignup,
   },
   {
     path: "/login",
@@ -27,6 +28,11 @@ const routes = [
     path: "/logout",
     name: "Logout",
     component: Logout,
+  },
+  {
+    path: "/requests",
+    name: "Requests Index",
+    component: RequestsIndex,
   },
 ];
 
