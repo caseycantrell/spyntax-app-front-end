@@ -5,6 +5,8 @@
       |
       <router-link to="/requests">Requests</router-link>
       |
+      <router-link to="/djs/:id">DJ Show</router-link>
+      |
       <router-link v-if="!isLoggedIn()" to="/djsignup">Signup</router-link>
       |
       <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
@@ -47,8 +49,8 @@ export default {
     isLoggedIn: function () {
       return localStorage.jwt;
     },
-    getUserId: function () {
-      return localStorage.user_id;
+    getDJId: function () {
+      return localStorage.dj_id;
     },
   },
 };

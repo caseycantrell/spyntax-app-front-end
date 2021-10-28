@@ -5,6 +5,7 @@ import DJSignup from "../views/DJSignup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import RequestsIndex from "../views/RequestsIndex.vue";
+import DJShow from "../views/DJShow.vue";
 
 Vue.use(VueRouter);
 
@@ -16,7 +17,7 @@ const routes = [
   },
   {
     path: "/djsignup",
-    name: "DJ Signup",
+    name: "dj-signup",
     component: DJSignup,
   },
   {
@@ -31,8 +32,13 @@ const routes = [
   },
   {
     path: "/requests",
-    name: "Requests Index",
+    name: "requests-index",
     component: RequestsIndex,
+  },
+  {
+    path: "/dj/:id",
+    name: "dj-show",
+    component: DJShow,
   },
 ];
 
