@@ -1,5 +1,10 @@
 <template>
   <div class="requests-index">
+    <button>Make Request</button>
+    <br />
+    <h2>Now Playing: ----</h2>
+
+    <h2>Current Requests</h2>
     <div v-for="request in requests" v-bind:key="request.id">
       <div>
         <strong>{{ request.song }}</strong>

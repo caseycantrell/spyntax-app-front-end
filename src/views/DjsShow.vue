@@ -1,6 +1,7 @@
 <template>
   <div class="djs-show">
     <h3>Your Profile</h3>
+    <router-link class="button" :to="`/djs/${getDJId()}/edit`">Edit Profile</router-link>
     <h2>{{ currentDJ.name }}</h2>
     <img :src="currentDJ.image_url" />
     <p>{{ currentDJ.info }}</p>
@@ -37,6 +38,10 @@ export default {
       this.currentDJ = response.data;
     });
   },
-  methods: {},
+  methods: {
+    getDJId: function () {
+      return localStorage.dj_id;
+    },
+  },
 };
 </script>

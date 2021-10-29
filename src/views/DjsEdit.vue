@@ -10,7 +10,9 @@
       </div>
       <div>
         <label>Info:&nbsp;</label>
-        <input type="text" v-model="editDJParams.info" />
+        <textarea v-model="editDJParams.info" required maxlength="500" />
+        <br />
+        <small>{{ 500 - editDJParams.info.length }} characters remaining.</small>
       </div>
       <div>
         <label>Website:&nbsp;</label>
@@ -51,9 +53,12 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 img {
   width: 400px;
+}
+small {
+  color: red;
 }
 </style>
 
@@ -79,6 +84,7 @@ export default {
         .patch("/djs/me", this.editDJParams)
         .then((response) => {
           console.log(response.data);
+          window.alert("Profile successfully updated.");
           this.$router.push(`/djs/${this.editDJParams.id}`);
         })
         .catch((error) => {
