@@ -1,7 +1,14 @@
 <template>
   <div class="requests-index">
     <div v-for="request in requests" v-bind:key="request.id">
-      {{ request }}
+      <div>
+        <strong>{{ request.song }}</strong>
+      </div>
+      <div>{{ request.comments }}</div>
+      <div>Status: {{ request.status }}</div>
+      <div>
+        <small>{{ relativeDate(request.created_at) }}</small>
+      </div>
     </div>
   </div>
 </template>

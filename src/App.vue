@@ -7,6 +7,8 @@
       |
       <router-link to="/djs/:id">DJ Show</router-link>
       |
+      <router-link to="/djs/me">Edit Profile</router-link>
+      |
       <router-link v-if="!isLoggedIn()" to="/djsignup">Signup</router-link>
       |
       <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>

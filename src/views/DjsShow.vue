@@ -1,7 +1,7 @@
 <template>
   <div class="dj-show">
-    <h2>Your Profile</h2>
-    <p>{{ currentDJ.name }}</p>
+    <h3>Your Profile</h3>
+    <h2>{{ currentDJ.name }}</h2>
     <img :src="currentDJ.image_url" />
     <p>{{ currentDJ.info }}</p>
     <p>{{ currentDJ.website }}</p>
@@ -12,6 +12,7 @@
     <p>Venmo: {{ currentDJ.venmo }}</p>
     <p>Cashapp: {{ currentDJ.cashapp }}</p>
     <p>PayPal: {{ currentDJ.paypal }}</p>
+    <img :src="currentDJ.qr_code_url" />
   </div>
 </template>
 

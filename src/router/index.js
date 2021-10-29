@@ -6,6 +6,7 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import RequestsIndex from "../views/RequestsIndex.vue";
 import DjsShow from "../views/DjsShow.vue";
+import DjsEdit from "../views/DjsEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,11 @@ const routes = [
     path: "/djs/:id",
     name: "djs-show",
     component: DjsShow,
+  },
+  {
+    path: "/djs/me",
+    name: "djs-edit",
+    component: DjsEdit,
   },
 ];
 
