@@ -1,5 +1,5 @@
 <template>
-  <div class="dj-show">
+  <div class="djs-show">
     <h3>Your Profile</h3>
     <h2>{{ currentDJ.name }}</h2>
     <img :src="currentDJ.image_url" />
@@ -32,7 +32,7 @@ export default {
     };
   },
   created: function () {
-    axios.get(`/djs/${localStorage.dj_id}`).then((response) => {
+    axios.get(`/djs/${this.$route.params.id}`).then((response) => {
       console.log(response.data);
       this.currentDJ = response.data;
     });

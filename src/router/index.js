@@ -42,7 +42,7 @@ const routes = [
     component: DjsShow,
   },
   {
-    path: "/djs/me",
+    path: "/djs/:id/edit",
     name: "djs-edit",
     component: DjsEdit,
   },
