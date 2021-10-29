@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Spyntax</h1>
+    <h1>Welcome to Spyntax</h1>
   </div>
 </template>
 
@@ -9,9 +9,7 @@
 <script>
 export default {
   data: function () {
-    return {
-      message: "",
-    };
+    return {};
   },
   created: function () {},
   methods: {},

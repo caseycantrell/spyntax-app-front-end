@@ -21,7 +21,7 @@ export default {
     };
   },
   created: function () {
-    axios.get("/requests?dj_id=1").then((response) => {
+    axios.get(`/requests?dj_id=${localStorage.dj_id}`).then((response) => {
       console.log(response.data);
       this.requests = response.data;
     });

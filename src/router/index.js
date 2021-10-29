@@ -1,24 +1,24 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import DJSignup from "../views/DJSignup.vue";
+import DjsSignup from "../views/DjsSignup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import RequestsIndex from "../views/RequestsIndex.vue";
-import DJShow from "../views/DJShow.vue";
+import DjsShow from "../views/DjsShow.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "/home",
     name: "Home",
     component: Home,
   },
   {
-    path: "/djsignup",
-    name: "dj-signup",
-    component: DJSignup,
+    path: "/djssignup",
+    name: "djs-signup",
+    component: DjsSignup,
   },
   {
     path: "/login",
@@ -36,9 +36,9 @@ const routes = [
     component: RequestsIndex,
   },
   {
-    path: "/dj/:id",
-    name: "dj-show",
-    component: DJShow,
+    path: "/djs/:id",
+    name: "djs-show",
+    component: DjsShow,
   },
 ];
 
