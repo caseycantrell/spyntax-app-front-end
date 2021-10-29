@@ -1,6 +1,6 @@
 <template>
   <div class="requests-index">
-    <button>Make Request</button>
+    <button v-on:click="newRequest()">Make Request</button>
     <br />
     <h2>Now Playing: ----</h2>
 
@@ -15,6 +15,21 @@
         <small>{{ relativeDate(request.created_at) }}</small>
       </div>
     </div>
+    <dialog id="new-request">
+      <form method="dialog">
+        <h1>Make a Request</h1>
+        <p>
+          Song:
+          <input type="text" v-model="newRequestParams.song" />
+        </p>
+        <p>
+          Comments:
+          <input type="text" v-model="newRequestParams.comments" />
+        </p>
+        <button v-on:click="createRequest()">Submit</button>
+        <button>Close</button>
+      </form>
+    </dialog>
   </div>
 </template>
 
@@ -30,6 +45,9 @@ export default {
   data: function () {
     return {
       requests: [],
+      newRequestParams: {
+        dj_id: `${localStorage.dj_id}`,
+      },
     };
   },
   created: function () {
@@ -41,6 +59,20 @@ export default {
   methods: {
     relativeDate: function (created_at) {
       return dayjs(created_at).fromNow();
+    },
+    newRequest: function () {
+      document.querySelector("#new-request").showModal();
+    },
+    createRequest: function () {
+      axios
+        .post("/requests", this.newRequestParams)
+        .then((response) => {
+          console.log(response.data);
+          this.requests.push(response.data);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
     },
   },
 };
