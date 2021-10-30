@@ -2,6 +2,9 @@
   <div class="requests-index">
     <button v-on:click="newRequest()">Make Request</button>
     <br />
+    <br />
+    <button v-if="isLoggedIn()" v-on:click="clearRequests()">Clear Requests</button>
+    <br />
     <h2>Now Playing: ----</h2>
 
     <h2>Current Requests</h2>
@@ -10,10 +13,13 @@
         <strong>{{ request.song }}</strong>
       </div>
       <div>{{ request.comments }}</div>
-      <div>Status: {{ request.status }}</div>
+      <div>
+        <small>Status: {{ request.status }}</small>
+      </div>
       <div>
         <small>{{ relativeDate(request.created_at) }}</small>
       </div>
+      <br />
     </div>
     <dialog id="new-request">
       <form method="dialog">
@@ -73,6 +79,18 @@ export default {
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
+    },
+    isLoggedIn: function () {
+      return localStorage.jwt;
+    },
+    clearRequests: function () {
+      if (confirm("Are you sure you want to clear all requests?")) {
+        axios.delete("/requests/all").then((response) => {
+          console.log(response.data);
+          window.alert("Successfully cleared requests.");
+          this.$router.push("/requests");
+        });
+      }
     },
   },
 };

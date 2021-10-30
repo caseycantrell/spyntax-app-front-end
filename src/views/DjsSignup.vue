@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <div class="djs-signup">
     <form v-on:submit.prevent="submit()">
       <h1>Signup</h1>
       <ul>
@@ -7,7 +7,7 @@
       </ul>
       <div>
         <label>DJ Name:&nbsp;</label>
-        <input type="text" v-model="newDJParams.dj_name" />
+        <input type="text" v-model="newDJParams.name" />
       </div>
       <div>
         <label>Email:&nbsp;</label>
@@ -33,7 +33,7 @@ export default {
   data: function () {
     return {
       newDJParams: {
-        dj_name: "",
+        name: "",
         email: "",
         password: "",
         password_confirmation: "",
@@ -47,6 +47,7 @@ export default {
         .post("/djs", this.newDJParams)
         .then((response) => {
           console.log(response.data);
+          window.alert("Account successfully created, please login to continue.");
           this.$router.push("/login");
         })
         .catch((error) => {
