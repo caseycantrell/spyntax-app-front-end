@@ -14,6 +14,8 @@
     <p>Cashapp: {{ currentDJ.cashapp }}</p>
     <p>PayPal: {{ currentDJ.paypal }}</p>
     <img :src="currentDJ.qr_code_url" />
+    <br />
+    <button v-on:click="deleteAccount()">Delete Account</button>
   </div>
 </template>
 
@@ -30,6 +32,7 @@ export default {
   data: function () {
     return {
       currentDJ: {},
+      errors: [],
     };
   },
   created: function () {
@@ -41,6 +44,21 @@ export default {
   methods: {
     getDJId: function () {
       return localStorage.dj_id;
+    },
+    deleteAccount: function () {
+      if (confirm("Are you sure you want to delete your account?")) {
+        axios
+          .delete("/djs/me")
+          .then((response) => {
+            console.log(response.data);
+            window.alert("Account successfully deleted.");
+            this.$router.push("/signup");
+          })
+          .catch((error) => {
+            this.status = error.response.status;
+            this.errors = error.response.data.errors;
+          });
+      }
     },
   },
 };

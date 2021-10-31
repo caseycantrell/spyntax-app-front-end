@@ -5,7 +5,7 @@
       |
       <router-link to="/requests">Requests</router-link>
       |
-      <router-link :to="`/djs/${getDJId()}`">Profile</router-link>
+      <router-link v-if="isLoggedIn()" :to="`/djs/${getDJId()}`">Profile</router-link>
       |
       <!-- <router-link :to="`/djs/${getDJId()}/edit`">Edit Profile</router-link>
       | -->

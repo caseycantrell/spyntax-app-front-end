@@ -20,6 +20,8 @@
       <div>
         <label>Confirm Password:&nbsp;</label>
         <input type="password" v-model="newDJParams.password_confirmation" />
+        <br />
+        <small v-if="newDJParams.password !== newDJParams.password_confirmation">Passwords must match.</small>
       </div>
       <input type="submit" value="Submit" />
     </form>
