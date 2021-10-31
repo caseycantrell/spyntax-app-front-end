@@ -46,9 +46,12 @@
         <label>PayPal:&nbsp;</label>
         <input type="text" v-model="editDJParams.paypal" />
       </div>
+      <br />
       <div>
         <button type="submit">Update</button>
       </div>
+      <br />
+      <button v-on:click="deleteAccount()">Delete Account</button>
     </form>
   </div>
 </template>
@@ -90,6 +93,24 @@ export default {
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
+    },
+    deleteAccount: function () {
+      if (confirm("Are you sure you want to delete your account?")) {
+        axios
+          .delete("/djs/me")
+          .then((response) => {
+            console.log(response.data);
+            delete axios.defaults.headers.common["Authorization"];
+            localStorage.removeItem("jwt");
+            localStorage.removeItem("dj_id");
+            window.alert("Account successfully deleted.");
+            this.$router.push("/signup");
+          })
+          .catch((error) => {
+            this.status = error.response.status;
+            this.errors = error.response.data.errors;
+          });
+      }
     },
   },
 };

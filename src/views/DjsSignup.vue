@@ -28,6 +28,12 @@
   </div>
 </template>
 
+<style scoped>
+small {
+  color: red;
+}
+</style>
+
 <script>
 import axios from "axios";
 
@@ -49,6 +55,9 @@ export default {
         .post("/djs", this.newDJParams)
         .then((response) => {
           console.log(response.data);
+          axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+          localStorage.setItem("jwt", response.data.jwt);
+          localStorage.setItem("dj_id", response.data.dj_id);
           window.alert("Account successfully created, please login to continue.");
           this.$router.push("/login");
         })
