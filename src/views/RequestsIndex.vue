@@ -22,7 +22,13 @@
         <small>{{ relativeDate(request.created_at) }}</small>
       </div>
       <br />
+      <button v-on:click="changeStatus(request, 'approved')">Approved</button>
+      &nbsp;
+      <button v-on:click="changeStatus(request, 'declined')">Declined</button>
+      <br />
+      <br />
     </div>
+
     <dialog id="new-request">
       <form method="dialog">
         <h1>Make a Request</h1>
@@ -59,7 +65,7 @@ export default {
     };
   },
   created: function () {
-    axios.get(`/requests?dj_id=${localStorage.dj_id}`).then((response) => {
+    axios.get(`/requests?dj_id=${this.$route.query.dj_id}`).then((response) => {
       console.log(response.data);
       this.requests = response.data;
     });
@@ -89,10 +95,20 @@ export default {
       if (confirm("Are you sure you want to clear all requests?")) {
         axios.delete("/requests/all").then((response) => {
           console.log(response.data);
-          window.alert("Successfully cleared requests.");
           this.$router.push("/requests");
         });
       }
+    },
+    changeStatus: function (request, status) {
+      axios
+        .patch(`/requests/${request.id}`, { status: status })
+        .then((response) => {
+          request.status = status;
+          console.log(response.data);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
     },
   },
 };
