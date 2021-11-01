@@ -6,10 +6,6 @@
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
       <div>
-        <label>DJ Name:&nbsp;</label>
-        <input type="text" v-model="newDJParams.name" />
-      </div>
-      <div>
         <label>Email:&nbsp;</label>
         <input type="email" v-model="newDJParams.email" />
       </div>
@@ -41,7 +37,6 @@ export default {
   data: function () {
     return {
       newDJParams: {
-        name: "",
         email: "",
         password: "",
         password_confirmation: "",

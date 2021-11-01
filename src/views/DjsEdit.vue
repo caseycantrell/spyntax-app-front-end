@@ -5,7 +5,7 @@
     <img :src="editDJParams.image_url" />
     <form v-on:submit.prevent="updateDJ()">
       <div>
-        <label>Name:&nbsp;</label>
+        <label>DJ Name:&nbsp;</label>
         <input type="text" v-model="editDJParams.name" />
       </div>
       <div>
@@ -104,7 +104,7 @@ export default {
             localStorage.removeItem("jwt");
             localStorage.removeItem("dj_id");
             window.alert("Account successfully deleted.");
-            this.$router.push("/signup");
+            this.$router.push("/djssignup");
           })
           .catch((error) => {
             this.status = error.response.status;
