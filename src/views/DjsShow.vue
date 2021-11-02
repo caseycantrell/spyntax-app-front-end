@@ -2,8 +2,9 @@
   <div class="djs-show">
     <h3>Your Profile</h3>
     <router-link class="button" :to="`/djs/${this.$route.params.id}/edit`">Edit Profile</router-link>
+    <br />
     <h2>{{ currentDJ.name }}</h2>
-    <img :src="currentDJ.image_url" />
+    <img :src="currentDJ.image_url" width="250px" />
     <p>Info: {{ currentDJ.info }}</p>
     <p>Website: {{ currentDJ.website }}</p>
     <p>Email: {{ currentDJ.email }}</p>
@@ -14,6 +15,7 @@
     <p>Cashapp: {{ currentDJ.cashapp }}</p>
     <p>PayPal: {{ currentDJ.paypal }}</p>
     <button v-on:click="showQRCode()">Show QR Code</button>
+
     <br />
 
     <dialog id="qr-code">
@@ -27,12 +29,6 @@
     </dialog>
   </div>
 </template>
-
-<style>
-img {
-  width: 400px;
-}
-</style>
 
 <script>
 import axios from "axios";

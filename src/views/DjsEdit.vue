@@ -58,7 +58,7 @@
 
 <style scoped>
 img {
-  width: 400px;
+  width: 250px;
 }
 small {
   color: red;
@@ -82,18 +82,6 @@ export default {
     });
   },
   methods: {
-    updateDJ: function () {
-      axios
-        .patch("/djs/me", this.editDJParams)
-        .then((response) => {
-          console.log(response.data);
-          window.alert("Profile successfully updated.");
-          this.$router.push(`/djs/${this.editDJParams.id}`);
-        })
-        .catch((error) => {
-          this.errors = error.response.data.errors;
-        });
-    },
     deleteAccount: function () {
       if (confirm("Are you sure you want to delete your account?")) {
         axios
@@ -111,6 +99,17 @@ export default {
             this.errors = error.response.data.errors;
           });
       }
+    },
+    updateDJ: function () {
+      axios
+        .patch("/djs/me", this.editDJParams)
+        .then((response) => {
+          console.log(response.data);
+          this.$router.push(`/djs/${this.editDJParams.id}`);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
     },
   },
 };

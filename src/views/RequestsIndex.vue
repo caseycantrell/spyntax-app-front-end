@@ -2,6 +2,15 @@
   <div class="requests-index">
     <h3>{{ currentDJ.name }}</h3>
     <img :src="currentDJ.image_url" />
+    <p>Info: {{ currentDJ.info }}</p>
+    <p>Website: {{ currentDJ.website }}</p>
+    <p>Email: {{ currentDJ.email }}</p>
+    <p>IG: {{ currentDJ.instagram }}</p>
+    <p>Twitter: {{ currentDJ.twitter }}</p>
+    <p>Facebook: {{ currentDJ.facebook }}</p>
+    <p>Venmo: {{ currentDJ.venmo }}</p>
+    <p>Cashapp: {{ currentDJ.cashapp }}</p>
+    <p>PayPal: {{ currentDJ.paypal }}</p>
     <br />
     <button v-on:click="newRequest()">Make Request</button>
     <br />
@@ -49,11 +58,13 @@
     </dialog>
   </div>
 </template>
-<style>
+
+<style scoped>
 img {
-  width: 100px;
+  width: 150px;
 }
 </style>
+
 <script>
 import axios from "axios";
 import Vue2Filters from "vue2-filters";
