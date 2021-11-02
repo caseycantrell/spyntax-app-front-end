@@ -13,7 +13,18 @@
     <p>Venmo: {{ currentDJ.venmo }}</p>
     <p>Cashapp: {{ currentDJ.cashapp }}</p>
     <p>PayPal: {{ currentDJ.paypal }}</p>
-    <img :src="currentDJ.qr_code_url" />
+    <button v-on:click="showQRCode()">Show QR Code</button>
+    <br />
+
+    <dialog id="qr-code">
+      <form method="dialog">
+        <img
+          :src="`http://api.qrserver.com/v1/create-qr-code/?data=${datagoeshere}&size=500x500&margin=20&bgcolor=000&color=fff&ecc=H`"
+        />
+        <br />
+        <button>Close</button>
+      </form>
+    </dialog>
   </div>
 </template>
 
@@ -42,6 +53,18 @@ export default {
   methods: {
     getDJId: function () {
       return localStorage.dj_id;
+    },
+    getQRCode: function () {
+      axios
+        .get(
+          "http://api.qrserver.com/v1/create-qr-code/?data=www.djpressplay.com&size=500x500&margin=20&bgcolor=000&color=fff&ecc=H"
+        )
+        .then((response) => {
+          this.currentDJ.qr_code_url = response;
+        });
+    },
+    showQRCode: function () {
+      document.querySelector("#qr-code").showModal();
     },
   },
 };
