@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/home">Home</router-link>
       |
-      <router-link :to="`/requests?dj_id=${getDJId()}`">Requests</router-link>
+      <router-link v-if="isLoggedIn()" :to="`/requests?dj_id=${getDJId()}`">Requests</router-link>
       |
       <router-link v-if="isLoggedIn()" :to="`/djs/${getDJId()}`">Profile</router-link>
       |

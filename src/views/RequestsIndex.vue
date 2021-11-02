@@ -25,9 +25,9 @@
         <small>{{ relativeDate(request.created_at) }}</small>
       </div>
       <br />
-      <button v-on:click="changeStatus(request, 'approved')">Approved</button>
+      <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'approved')">Approved</button>
       &nbsp;
-      <button v-on:click="changeStatus(request, 'declined')">Declined</button>
+      <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'declined')">Declined</button>
       <br />
       <br />
     </div>
