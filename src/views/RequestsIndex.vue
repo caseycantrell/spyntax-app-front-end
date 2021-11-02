@@ -15,9 +15,9 @@
     <button v-on:click="newRequest()">Make Request</button>
     <br />
     <br />
-    <button v-if="isLoggedIn()" v-on:click="clearRequests()" v-on:submit.prevent="clearRequests()">
-      Clear Requests
-    </button>
+    <div v-if="isLoggedIn()">
+      <button v-on:click="clearRequests()" v-on:submit.prevent="clearRequests()">Clear Requests</button>
+    </div>
     <br />
     <h2>Now Playing: ----</h2>
 

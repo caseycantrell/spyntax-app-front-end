@@ -26,6 +26,7 @@
         </div>
         <br />
         <button v-on:click="doPrint()">Print</button>
+        &nbsp;
         <button>Close</button>
       </form>
     </dialog>
