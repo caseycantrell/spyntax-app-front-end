@@ -19,7 +19,7 @@
     <dialog id="qr-code">
       <form method="dialog">
         <img
-          :src="`http://api.qrserver.com/v1/create-qr-code/?data=${datagoeshere}&size=500x500&margin=20&bgcolor=000&color=fff&ecc=H`"
+          :src="`http://api.qrserver.com/v1/create-qr-code/?data=http://localhost:8080/requests?dj_id=${currentDJ.id}&size=500x500&margin=20&bgcolor=000&color=fff&ecc=H`"
         />
         <br />
         <button>Close</button>

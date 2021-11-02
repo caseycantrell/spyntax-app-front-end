@@ -1,5 +1,8 @@
 <template>
   <div class="requests-index">
+    <h3>{{ currentDJ.name }}</h3>
+    <img :src="currentDJ.image_url" />
+    <br />
     <button v-on:click="newRequest()">Make Request</button>
     <br />
     <br />
@@ -46,7 +49,11 @@
     </dialog>
   </div>
 </template>
-
+<style>
+img {
+  width: 100px;
+}
+</style>
 <script>
 import axios from "axios";
 import Vue2Filters from "vue2-filters";
@@ -63,12 +70,17 @@ export default {
       newRequestParams: {
         dj_id: `${localStorage.dj_id}`,
       },
+      currentDJ: {},
     };
   },
   created: function () {
     axios.get(`/requests?dj_id=${this.$route.query.dj_id}`).then((response) => {
       console.log(response.data);
       this.requests = response.data;
+    });
+    axios.get(`/djs/${this.$route.query.dj_id}`).then((response) => {
+      console.log(response.data);
+      this.currentDJ = response.data;
     });
   },
   methods: {
