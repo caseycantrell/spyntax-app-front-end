@@ -1,6 +1,5 @@
 <template>
   <div class="djs-show">
-    <h3>Your Profile</h3>
     <router-link class="button" :to="`/djs/${this.$route.params.id}/edit`">Edit Profile</router-link>
     <br />
     <h2>{{ currentDJ.name }}</h2>
@@ -20,10 +19,13 @@
 
     <dialog id="qr-code">
       <form method="dialog">
-        <img
-          :src="`http://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.netlify.app/requests?dj_id=${currentDJ.id}&size=500x500&margin=20&bgcolor=000&color=fff&ecc=H`"
-        />
+        <div id="printable-qr-code">
+          <img
+            :src="`http://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.netlify.app/requests?dj_id=${currentDJ.id}&size=500x500&margin=20&bgcolor=000&color=fff&ecc=H`"
+          />
+        </div>
         <br />
+        <button v-on:click="doPrint()">Print</button>
         <button>Close</button>
       </form>
     </dialog>
@@ -52,6 +54,9 @@ export default {
     },
     showQRCode: function () {
       document.querySelector("#qr-code").showModal();
+    },
+    doPrint: function () {
+      window.print();
     },
   },
 };
