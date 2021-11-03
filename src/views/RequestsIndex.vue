@@ -23,7 +23,7 @@
     <small>{{ currentSong }}</small>
     <br />
     <br />
-    <button v-on:click="songScrape()" v-on:submit.prevent="songScrape()">Current Song</button>
+    <button v-on:click="songScrape()">Get Current Song</button>
 
     <h2>Current Requests</h2>
     <div v-for="request in requests" v-bind:key="request.id">
@@ -95,7 +95,7 @@ export default {
       console.log(response.data);
       this.requests = response.data;
     });
-    var cable = ActionCable.createConsumer("ws://localhost:3000/cable");
+    var cable = ActionCable.createConsumer("ws://spyntax.herokuapp.com/cable");
     cable.subscriptions.create("RequestsChannel", {
       connected: () => {
         // Called when the subscription is ready for use on the server
