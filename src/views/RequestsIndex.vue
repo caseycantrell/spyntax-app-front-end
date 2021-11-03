@@ -19,7 +19,11 @@
       <button v-on:click="clearRequests()" v-on:submit.prevent="clearRequests()">Clear Requests</button>
     </div>
     <br />
-    <h2>Now Playing: ----</h2>
+    <h1>Now Playing:</h1>
+    <small>{{ currentSong }}</small>
+    <br />
+    <br />
+    <button v-on:click="songScrape()" v-on:submit.prevent="songScrape()">Current Song</button>
 
     <h2>Current Requests</h2>
     <div v-for="request in requests" v-bind:key="request.id">
@@ -82,6 +86,7 @@ export default {
         dj_id: `${localStorage.dj_id}`,
       },
       currentDJ: {},
+      currentSong: {},
     };
   },
   created: function () {
@@ -93,6 +98,7 @@ export default {
       console.log(response.data);
       this.currentDJ = response.data;
     });
+    this.songScrape();
   },
   methods: {
     relativeDate: function (created_at) {
@@ -132,6 +138,16 @@ export default {
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
+        });
+    },
+    songScrape: function () {
+      axios
+        .get(
+          "https://simplescraper.io/api/2tbT6a8iwNXDku6PZ5jo?apikey=mT9dSXr9ZLqfFLv3Zq0WMvDrqWqHU815&run_now=true&limit=100"
+        )
+        .then((response) => {
+          console.log(response.data);
+          this.currentSong = response.data.data[response.data.data.length - 1].song_title;
         });
     },
   },
