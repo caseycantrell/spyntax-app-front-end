@@ -19,6 +19,12 @@
       <button v-on:click="clearRequests()" v-on:submit.prevent="clearRequests()">Clear Requests</button>
     </div>
     <br />
+    <h1>Now Playing:</h1>
+    <small>{{ currentSong }}</small>
+    <br />
+    <br />
+    <button v-on:click="songScrape()">Get Current Song</button>
+
     <h2>Current Requests</h2>
     <div v-for="request in requests" v-bind:key="request.id">
       <div>
@@ -68,7 +74,7 @@ import axios from "axios";
 import Vue2Filters from "vue2-filters";
 import dayjs from "dayjs";
 import ActionCable from "actioncable";
-// const cheerio = require("cheerio");
+const cheerio = require("cheerio");
 
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -82,6 +88,7 @@ export default {
         dj_id: `${localStorage.dj_id}`,
       },
       currentDJ: {},
+      currentSong: {},
     };
   },
   created: function () {
@@ -109,6 +116,7 @@ export default {
       console.log(response.data);
       this.currentDJ = response.data;
     });
+    this.songScrape();
   },
   methods: {
     relativeDate: function (created_at) {
@@ -149,6 +157,15 @@ export default {
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
+    },
+    songScrape: function () {
+      const url = "https://cors-anywhere.herokuapp.com/https://serato.com/playlists/DJ_SEEZ/11-3-21_2";
+      axios.get(url).then((response) => {
+        console.log(response.data);
+        const $ = cheerio.load(response.data);
+        const span = $("a", ".playlist-trackname").find();
+        console.log(span);
+      });
     },
   },
 };
