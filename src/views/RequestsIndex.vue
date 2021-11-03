@@ -74,6 +74,7 @@ import axios from "axios";
 import Vue2Filters from "vue2-filters";
 import dayjs from "dayjs";
 import ActionCable from "actioncable";
+const cheerio = require("cheerio");
 
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -95,7 +96,7 @@ export default {
       console.log(response.data);
       this.requests = response.data;
     });
-    var cable = ActionCable.createConsumer("ws://spyntax.herokuapp.com/cable");
+    var cable = ActionCable.createConsumer("ws://localhost:3000/cable");
     cable.subscriptions.create("RequestsChannel", {
       connected: () => {
         // Called when the subscription is ready for use on the server
@@ -158,14 +159,12 @@ export default {
         });
     },
     songScrape: function () {
-      axios
-        .get(
-          "https://simplescraper.io/api/2tbT6a8iwNXDku6PZ5jo?apikey=mT9dSXr9ZLqfFLv3Zq0WMvDrqWqHU815&run_now=true&limit=100"
-        )
-        .then((response) => {
-          console.log(response.data);
-          this.currentSong = response.data.data[response.data.data.length - 1].song_title;
-        });
+      axios.get("https://serato.com/playlists/DJ_SEEZ/11-3-21_2").then((response) => {
+        console.log(response.data);
+        const $ = cheerio.load(response.data);
+        const span = $("a", ".playlist-trackname").text();
+        console.log(span);
+      });
     },
   },
 };
