@@ -75,6 +75,7 @@ import Vue2Filters from "vue2-filters";
 import dayjs from "dayjs";
 import ActionCable from "actioncable";
 const cheerio = require("cheerio");
+// const htmlparser2 = require("htmlparser2");
 
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -161,10 +162,10 @@ export default {
     songScrape: function () {
       const url = "https://cors-anywhere.herokuapp.com/https://serato.com/playlists/DJ_SEEZ/11-3-21_2";
       axios.get(url).then((response) => {
-        console.log(response.data);
         const $ = cheerio.load(response.data);
-        const span = $("a", ".playlist-trackname").find();
-        console.log(span);
+        const songs = $(".playlist-trackname").text();
+        this.currentSong = songs;
+        console.log(songs);
       });
     },
   },
