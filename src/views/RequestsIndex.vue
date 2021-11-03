@@ -73,6 +73,7 @@ img {
 import axios from "axios";
 import Vue2Filters from "vue2-filters";
 import dayjs from "dayjs";
+import ActionCable from "actioncable";
 
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -93,6 +94,22 @@ export default {
     axios.get(`/requests?dj_id=${this.$route.query.dj_id}`).then((response) => {
       console.log(response.data);
       this.requests = response.data;
+    });
+    var cable = ActionCable.createConsumer("ws://localhost:3000/cable");
+    cable.subscriptions.create("RequestsChannel", {
+      connected: () => {
+        // Called when the subscription is ready for use on the server
+        console.log("Connected to RequestsChannel");
+      },
+      disconnected: () => {
+        // Called when the subscription has been terminated by the server
+      },
+      received: (data) => {
+        // Called when there's incoming data on the websocket for this channel
+        console.log("Data from RequestsChannel:", data);
+        // push the data into the array of messages
+        this.requests.unshift(data);
+      },
     });
     axios.get(`/djs/${this.$route.query.dj_id}`).then((response) => {
       console.log(response.data);
