@@ -96,7 +96,7 @@ export default {
       console.log(response.data);
       this.requests = response.data;
     });
-    var cable = ActionCable.createConsumer("ws://localhost:3000/cable");
+    var cable = ActionCable.createConsumer("ws://spyntax.herokuapp.com/cable");
     cable.subscriptions.create("RequestsChannel", {
       connected: () => {
         // Called when the subscription is ready for use on the server
