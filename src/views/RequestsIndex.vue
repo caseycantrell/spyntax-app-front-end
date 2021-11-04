@@ -15,7 +15,7 @@
     <button v-on:click="newRequest()">Make Request</button>
     <br />
     <br />
-    <div v-if="isLoggedIn()">
+    <div v-if="getDJId() == currentDJ.id">
       <button v-on:click="clearRequests()" v-on:submit.prevent="clearRequests()">Clear Requests</button>
     </div>
     <br />
@@ -23,8 +23,6 @@
     <small>{{ currentSong }}</small>
     <br />
     <br />
-    <button v-on:click="songScrape()">Get Current Song</button>
-
     <h2>Current Requests</h2>
     <div v-for="request in requests" v-bind:key="request.id">
       <div>
@@ -38,9 +36,11 @@
         <small>{{ relativeDate(request.created_at) }}</small>
       </div>
       <br />
-      <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'approved')">Approved</button>
-      &nbsp;
-      <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'declined')">Declined</button>
+      <div v-if="getDJId() == currentDJ.id">
+        <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'approved')">Approved</button>
+        &nbsp;
+        <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'declined')">Declined</button>
+      </div>
       <br />
       <br />
     </div>
@@ -163,10 +163,13 @@ export default {
       const url = "https://cors-anywhere.herokuapp.com/https://serato.com/playlists/DJ_SEEZ/11-3-21_2";
       axios.get(url).then((response) => {
         const $ = cheerio.load(response.data);
-        const songs = $(".playlist-trackname").text();
+        const songs = $(".playlist-trackname").last().text();
         this.currentSong = songs;
         console.log(songs);
       });
+    },
+    getDJId: function () {
+      return localStorage.dj_id;
     },
   },
 };
