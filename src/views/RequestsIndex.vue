@@ -85,9 +85,7 @@ export default {
   data: function () {
     return {
       requests: [],
-      newRequestParams: {
-        dj_id: `${localStorage.dj_id}`,
-      },
+      newRequestParams: {},
       currentDJ: {},
       currentSong: {},
     };
@@ -96,6 +94,7 @@ export default {
     axios.get(`/requests?dj_id=${this.$route.query.dj_id}`).then((response) => {
       console.log(response.data);
       this.requests = response.data;
+      this.newRequestParams.dj_id = this.$route.query.dj_id;
     });
     var cable = ActionCable.createConsumer("ws://localhost:3000/cable");
     cable.subscriptions.create("RequestsChannel", {
@@ -110,7 +109,11 @@ export default {
         // Called when there's incoming data on the websocket for this channel
         console.log("Data from RequestsChannel:", data);
         // push the data into the array of messages
-        this.requests.unshift(data);
+        if (data.song) {
+          this.requests.unshift(data);
+        } else {
+          // find correct object using data.id and update status using data.status
+        }
       },
     });
     axios.get(`/djs/${this.$route.query.dj_id}`).then((response) => {
@@ -131,7 +134,8 @@ export default {
         .post("/requests", this.newRequestParams)
         .then((response) => {
           console.log(response.data);
-          this.requests.push(response.data);
+          this.newRequestParams.song = "";
+          this.newRequestParams.comments = "";
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
@@ -140,11 +144,14 @@ export default {
     isLoggedIn: function () {
       return localStorage.jwt;
     },
+    getDJId: function () {
+      return localStorage.dj_id;
+    },
     clearRequests: function () {
       if (confirm("Are you sure you want to clear all requests?")) {
         axios.delete("/requests/all").then((response) => {
           console.log(response.data);
-          this.$router.push("/requests");
+          this.requests = [];
         });
       }
     },
@@ -167,9 +174,6 @@ export default {
         this.currentSong = songs;
         console.log(songs);
       });
-    },
-    getDJId: function () {
-      return localStorage.dj_id;
     },
   },
 };

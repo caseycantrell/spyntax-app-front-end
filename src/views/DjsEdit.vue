@@ -91,7 +91,6 @@ export default {
             delete axios.defaults.headers.common["Authorization"];
             localStorage.removeItem("jwt");
             localStorage.removeItem("dj_id");
-            window.alert("Account successfully deleted.");
             this.$router.push("/djssignup");
           })
           .catch((error) => {
