@@ -14,14 +14,12 @@
     <p>PayPal: {{ currentDJ.paypal }}</p>
     <br />
     <button v-on:click="newRequest()">Make Request</button>
-
-    <br />
     <br />
     <div v-if="getDJId() == currentDJ.id">
       <button v-on:click="clearRequests()" v-on:submit.prevent="clearRequests()">Clear Requests</button>
     </div>
     <br />
-    <div>
+    <div v-if="currentSong !== null">
       <h1>Now Playing:</h1>
       <small>{{ currentSong }}</small>
     </div>
@@ -93,7 +91,7 @@ export default {
       requests: [],
       newRequestParams: {},
       currentDJ: {},
-      currentSong: {},
+      currentSong: null,
     };
   },
   created: function () {
@@ -177,9 +175,9 @@ export default {
       console.log(url);
       axios.get(url).then((response) => {
         const $ = cheerio.load(response.data);
-        const songs = $(".playlist-trackname").last().text();
-        this.currentSong = songs;
-        console.log(songs);
+        const song = $(".playlist-trackname").last().text();
+        this.currentSong = song;
+        console.log(song);
       });
     },
   },
