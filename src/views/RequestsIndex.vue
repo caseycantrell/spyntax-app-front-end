@@ -5,6 +5,7 @@
     <p>Info: {{ currentDJ.info }}</p>
     <p>Website: {{ currentDJ.website }}</p>
     <p>Email: {{ currentDJ.email }}</p>
+    <p>Email: {{ currentDJ.serato_url }}</p>
     <p>IG: {{ currentDJ.instagram }}</p>
     <p>Twitter: {{ currentDJ.twitter }}</p>
     <p>Facebook: {{ currentDJ.facebook }}</p>
@@ -13,14 +14,20 @@
     <p>PayPal: {{ currentDJ.paypal }}</p>
     <br />
     <button v-on:click="newRequest()">Make Request</button>
+
     <br />
     <br />
     <div v-if="getDJId() == currentDJ.id">
       <button v-on:click="clearRequests()" v-on:submit.prevent="clearRequests()">Clear Requests</button>
     </div>
     <br />
-    <h1>Now Playing:</h1>
-    <small>{{ currentSong }}</small>
+    <div>
+      <h1>Now Playing:</h1>
+      <small>{{ currentSong }}</small>
+    </div>
+    <br />
+    <br />
+    <button v-on:click="songScrape()">Show Current Song</button>
     <br />
     <br />
     <h2>Current Requests</h2>
@@ -75,7 +82,6 @@ import Vue2Filters from "vue2-filters";
 import dayjs from "dayjs";
 import ActionCable from "actioncable";
 const cheerio = require("cheerio");
-// const htmlparser2 = require("htmlparser2");
 
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -120,7 +126,7 @@ export default {
       console.log(response.data);
       this.currentDJ = response.data;
     });
-    this.songScrape();
+    // this.songScrape();
   },
   methods: {
     relativeDate: function (created_at) {
@@ -167,7 +173,8 @@ export default {
         });
     },
     songScrape: function () {
-      const url = "https://cors-anywhere.herokuapp.com/https://serato.com/playlists/DJ_SEEZ/11-3-21_2";
+      const url = `https://cors-anywhere.herokuapp.com/${this.currentDJ.serato_url}`;
+      console.log(url);
       axios.get(url).then((response) => {
         const $ = cheerio.load(response.data);
         const songs = $(".playlist-trackname").last().text();

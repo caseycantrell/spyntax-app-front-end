@@ -7,6 +7,7 @@
     <p>Info: {{ currentDJ.info }}</p>
     <p>Website: {{ currentDJ.website }}</p>
     <p>Email: {{ currentDJ.email }}</p>
+    <p>Serato Live Playlist URL: {{ currentDJ.serato_url }}</p>
     <p>IG: {{ currentDJ.instagram }}</p>
     <p>Twitter: {{ currentDJ.twitter }}</p>
     <p>Facebook: {{ currentDJ.facebook }}</p>

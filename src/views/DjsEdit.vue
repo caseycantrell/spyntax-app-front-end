@@ -23,6 +23,10 @@
         <input type="text" v-model="editDJParams.email" />
       </div>
       <div>
+        <label>Serato Live Playlist URL:&nbsp;</label>
+        <input type="text" v-model="editDJParams.serato_url" />
+      </div>
+      <div>
         <label>Instagram:&nbsp;</label>
         <input type="text" v-model="editDJParams.instagram" />
       </div>
