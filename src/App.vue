@@ -1,9 +1,6 @@
 <template>
   <div id="app">
     <section class="position-relative shadow pb-7 pb-lg-12">
-      <!--Navbar demo heading-->
-
-      <!--Navbar demo start-->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container position-relative">
           <a class="navbar-brand" href="index.html">
@@ -50,19 +47,6 @@
         </div>
       </nav>
     </section>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link v-if="isLoggedIn()" :to="`/requests?dj_id=${getDJId()}`">Requests</router-link>
-      |
-      <router-link v-if="isLoggedIn()" :to="`/djs/${getDJId()}`">Profile</router-link>
-      |
-      <router-link v-if="!isLoggedIn()" to="/djssignup">Signup</router-link>
-      |
-      <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
-      |
-      <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
-    </div> -->
     <router-view />
   </div>
 </template>
