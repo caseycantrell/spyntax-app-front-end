@@ -1,27 +1,4 @@
 <template>
-  <!-- <div class="djs-signup">
-    <form v-on:submit.prevent="submit()">
-      <h1>Signup</h1>
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-      <div>
-        <label>Email:&nbsp;</label>
-        <input type="email" v-model="newDJParams.email" />
-      </div>
-      <div>
-        <label>Password:&nbsp;</label>
-        <input type="password" v-model="newDJParams.password" />
-      </div>
-      <div>
-        <label>Confirm Password:&nbsp;</label>
-        <input type="password" v-model="newDJParams.password_confirmation" />
-        <br />
-        <small v-if="newDJParams.password !== newDJParams.password_confirmation">Passwords must match.</small>
-      </div>
-      <input type="submit" value="Submit" />
-    </form>
-  </div> -->
   <section class="bg-white position-relative">
     <div class="bg-pattern text-muted opacity-10 w-100 h-100 start-0 top-0 position-absolute"></div>
     <div class="bg-gradientwhite flip-y w-50 h-100 start-50 top-0 translate-middle-x position-absolute"></div>

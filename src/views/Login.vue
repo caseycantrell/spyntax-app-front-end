@@ -1,23 +1,4 @@
 <template>
-  <!-- <div class="login">
-    <form v-on:submit.prevent="submit()">
-   <h1>Login</h1>
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-      <div>
-        <label>Email:&nbsp;</label>
-        <input type="email" v-model="newSessionParams.email" />
-      </div>
-      <div>
-        <label>Password:&nbsp;</label>
-        <input type="password" v-model="newSessionParams.password" />
-      </div>
-      <input type="submit" value="Submit" />
-    </form>
-  </div> -->
-
-  <!--page-hero-->
   <section class="bg-white position-relative">
     <div class="bg-pattern text-light w-100 h-100 start-0 top-0 position-absolute"></div>
     <div class="container py-9 pt-lg-12 position-relative z-index-1">
