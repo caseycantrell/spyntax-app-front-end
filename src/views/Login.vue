@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="login">
     <form v-on:submit.prevent="submit()">
-      <h1>Login</h1>
+   <h1>Login</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
@@ -23,11 +23,11 @@
     <div class="container py-9 pt-lg-12 position-relative z-index-1">
       <div class="row align-items-center justify-content-center">
         <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 z-index-2">
-          <h2 class="mb-1 display-6">Welcome back!</h2>
-          <p class="mb-4 text-muted">Please Sign In with details...</p>
+          <h2 class="mb-1 display-6">Welcome back.</h2>
+          <p class="mb-4 text-muted">Please Sign In below...</p>
           <div class="position-relative">
             <div>
-              <form>
+              <form v-on:submit.prevent="submit()">
                 <div class="input-icon-group mb-3">
                   <span class="input-icon">
                     <svg
@@ -104,7 +104,7 @@ export default {
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("dj_id", response.data.dj_id);
-          this.$router.push("/djsshow");
+          this.$router.push("/");
         })
         .catch((error) => {
           console.log(error.response);

@@ -27,27 +27,27 @@
         <input type="text" v-model="editDJParams.serato_url" />
       </div>
       <div>
-        <label>Instagram:&nbsp;</label>
+        <label>Instagram URL:&nbsp;</label>
         <input type="text" v-model="editDJParams.instagram" />
       </div>
       <div>
-        <label>Twitter:&nbsp;</label>
+        <label>Twitter URL:&nbsp;</label>
         <input type="text" v-model="editDJParams.twitter" />
       </div>
       <div>
-        <label>Facebook:&nbsp;</label>
+        <label>Facebook URL:&nbsp;</label>
         <input type="text" v-model="editDJParams.facebook" />
       </div>
       <div>
-        <label>Venmo:&nbsp;</label>
+        <label>Venmo URL:&nbsp;</label>
         <input type="text" v-model="editDJParams.venmo" />
       </div>
       <div>
-        <label>Cashapp:&nbsp;</label>
+        <label>Cashapp URL:&nbsp;</label>
         <input type="text" v-model="editDJParams.cashapp" />
       </div>
       <div>
-        <label>PayPal:&nbsp;</label>
+        <label>PayPal URL:&nbsp;</label>
         <input type="text" v-model="editDJParams.paypal" />
       </div>
       <br />
