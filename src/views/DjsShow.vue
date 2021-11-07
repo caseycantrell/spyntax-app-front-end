@@ -48,47 +48,46 @@
               <div class="col-lg-3 mb-5 mb-lg-0">
                 <div class="h-lg-100">
                   <div class="card bg-gradient-light h-lg-100 p-3">
-                    <div>
-                      <!--profile image-->
-                      <div
-                        class="size-160 mb-5 rounded-circle shadow bg-no-repeat overflow-hidden"
-                        style="background-image"
-                      >
-                        <img :src="currentDJ.image_url" width="250px" />
-                      </div>
-                      <h4 class="mb-2">{{ currentDJ.name }}</h4>
-                      <ul class="list-unstyled border-bottom pb-3 mb-3">
-                        <li class="d-flex align-items-stretch mb-2">
-                          <i class="bi bi-globe me-2 align-middle text-muted"></i>
-                          <a href="#!" class="small link-hover-decoration">{{ currentDJ.website }}</a>
-                        </li>
-
-                        <li class="d-flex align-items-stretch mb-2">
-                          <i class="bi bi-twitter me-2 align-middle text-muted"></i>
-                          <a href="#!" class="small link-hover-decoration">{{ currentDJ.twitter }}</a>
-                        </li>
-                        <li class="d-flex align-items-stretch mb-2">
-                          <i class="bi bi-facebook me-2 align-middle text-muted"></i>
-                          <a href="#!" class="small link-hover-decoration">{{ currentDJ.facebook }}</a>
-                        </li>
-                        <li class="d-flex align-items-stretch mb-2">
-                          <i class="bi bi-instagram me-2 align-middle text-muted"></i>
-                          <a href="#!" class="small link-hover-decoration">{{ currentDJ.instagram }}</a>
-                        </li>
-                        <li class="d-flex align-items-stretch mb-2">
-                          <i class="bi bi-venmo me-2 align-middle text-muted"></i>
-                          <a href="#!" class="small link-hover-decoration">{{ currentDJ.venmo }}</a>
-                        </li>
-                        <li class="d-flex align-items-stretch mb-2">
-                          <i class="bi bi-paypal me-2 align-middle text-muted"></i>
-                          <a href="#!" class="small link-hover-decoration">{{ currentDJ.paypal }}</a>
-                        </li>
-                        <li class="d-flex align-items-stretch mb-2">
-                          <i class="bi bi-cashapp me-2 align-middle text-muted"></i>
-                          <a href="#!" class="small link-hover-decoration">{{ currentDJ.cashapp }}</a>
-                        </li>
-                      </ul>
+                    <!--profile image-->
+                    <div
+                      class="size-160 mb-5 rounded-circle shadow bg-no-repeat overflow-hidden"
+                      style="background-image"
+                    >
+                      <img :src="currentDJ.image_url" width="250px" />
                     </div>
+                    <h4 class="mb-2">{{ currentDJ.name }}</h4>
+                    <ul class="list-unstyled border-bottom pb-3 mb-3">
+                      <li class="d-flex align-items-stretch mb-2">
+                        <i class="bi bi-globe me-2 align-middle text-muted"></i>
+                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.website }}</a>
+                      </li>
+
+                      <li class="d-flex align-items-stretch mb-2">
+                        <i class="bi bi-twitter me-2 align-middle text-muted"></i>
+                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.twitter }}</a>
+                      </li>
+                      <li class="d-flex align-items-stretch mb-2">
+                        <i class="bi bi-facebook me-2 align-middle text-muted"></i>
+                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.facebook }}</a>
+                      </li>
+                      <li class="d-flex align-items-stretch mb-2">
+                        <i class="bi bi-instagram me-2 align-middle text-muted"></i>
+                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.instagram }}</a>
+                      </li>
+                      <li class="d-flex align-items-stretch mb-2">
+                        <i class="bi bi-venmo me-2 align-middle text-muted"></i>
+                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.venmo }}</a>
+                      </li>
+                      <li class="d-flex align-items-stretch mb-2">
+                        <i class="bi bi-paypal me-2 align-middle text-muted"></i>
+                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.paypal }}</a>
+                      </li>
+                      <li class="d-flex align-items-stretch mb-2">
+                        <i class="bi bi-cashapp me-2 align-middle text-muted"></i>
+                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.cashapp }}</a>
+                      </li>
+                    </ul>
+                    <span class="badge px-2 bg-primary rounded-pill">Display QR Code</span>
                   </div>
                 </div>
               </div>
@@ -106,24 +105,20 @@
 
                     <div class="row align-items-center">
                       <div class="col-md-6 mb-3">
-                        <label class="form-label">DJ Name</label>
+                        <label class="form-label"><strong>DJ Name</strong></label>
                         <div class="form-control">{{ currentDJ.name }}</div>
                       </div>
                       <div class="col-md-6 mb-3">
-                        <label class="form-label">Email address</label>
+                        <label class="form-label"><strong>Email address</strong></label>
                         <div class="form-control">{{ currentDJ.email }}</div>
                       </div>
                       <div class="col-md-6 mb-3">
-                        <label class="form-label">Serato Live Playlist URL</label>
+                        <label class="form-label"><strong>Serato Live Playlist URL</strong></label>
                         <div class="form-control">{{ currentDJ.serato_url }}</div>
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <label class="form-label">Company</label>
-                        <div class="form-control">Assan inc.</div>
                       </div>
 
                       <div class="col-md-8 mb-3">
-                        <label class="form-label">Bio</label>
+                        <label class="form-label"><strong>Bio</strong></label>
                         <div class="form-control">{{ currentDJ.info }}</div>
                       </div>
                     </div>
