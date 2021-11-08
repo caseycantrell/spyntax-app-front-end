@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container position-relative">
           <a class="navbar-brand" href="index.html">
-            <img src="/assets/img/logo/logo.svg" alt="" class="img-fluid" />
+            <img src="/assets/img/spyntax2.png" width="250px" alt="" class="img-fluid" />
           </a>
 
           <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
