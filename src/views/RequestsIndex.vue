@@ -78,11 +78,11 @@
               <div class="position-relative pb-3 pb-lg-0">
                 <div>
                   <h2 class="my-3 display-3">Requests</h2>
-                  <div class="d-flex mb-0 small align-items-center">
-                    <img src="assets/img/avatar/6.jpg" alt="" class="size-40 rounded-circle me-2" />
+                  <div class="d-flex mb-4 small align-items-center">
+                    <img :src="currentDJ.image_url" alt="" class="size-60 rounded-circle me-2" />
                     <span class="text-muted d-inline-block">
-                      By
-                      <a href="#!" class="text-white">Andrew</a>
+                      For
+                      <a href="#!" class="text-white">{{ currentDJ.name }}</a>
                     </span>
                   </div>
                 </div>
@@ -92,6 +92,7 @@
           <!--/.article-->
         </div>
         <!--Divider-->
+
         <svg
           class="position-absolute start-0 bottom-0 text-white"
           preserveAspectRatio="none"
@@ -104,8 +105,48 @@
           <path d="M800 240H0L800 0V240Z" fill="currentColor" />
         </svg>
       </section>
-      <!--/.Article header-end-->
 
+      <center>
+        <a
+          href="#request"
+          data-bs-toggle="modal"
+          aria-expanded="false"
+          class="btn btn-primary btn-hover-arrow btn-lg mb-6"
+        >
+          Make Request
+        </a>
+      </center>
+      <div class="modal fade" id="request" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Make a Request</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Song:</label>
+                  <input type="text" class="form-control" id="recipient-name" />
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Comments:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" v-on:click="createRequest()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="py-5 d-grid">
+        <center>
+          <button class="btn btn-secondary btn-lg mb-2 me-1" v-on:click="newRequest()">Make Request</button>
+        </center>
+      </div> -->
       <section class="position-relative">
         <div class="container py-7">
           <div class="row">
