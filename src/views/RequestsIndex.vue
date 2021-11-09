@@ -127,17 +127,19 @@
               <form>
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">Song:</label>
-                  <input type="text" class="form-control" id="recipient-name" />
+                  <input type="text" class="form-control" id="recipient-name" v-model="newRequestParams.song" />
                 </div>
                 <div class="mb-3">
                   <label for="message-text" class="col-form-label">Comments:</label>
-                  <textarea class="form-control" id="message-text"></textarea>
+                  <textarea class="form-control" id="message-text" v-model="newRequestParams.comments"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="createRequest()">
+                    Submit
+                  </button>
                 </div>
               </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" v-on:click="createRequest()">Submit</button>
             </div>
           </div>
         </div>
@@ -150,7 +152,27 @@
       <section class="position-relative">
         <div class="container py-7">
           <div class="row">
-            <div class="col-xl-9 mx-auto">
+            <!-- <div v-for="request in requests" v-bind:key="request.id">
+      <div>
+        <strong>{{ request.song }}</strong>
+      </div>
+      <div>{{ request.comments }}</div>
+      <div>
+        <small>Status: {{ request.status }}</small>
+      </div>
+      <div>
+        <small>{{ relativeDate(request.created_at) }}</small>
+      </div>
+      <br />
+      <div v-if="getDJId() == currentDJ.id">
+        <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'approved')">Approved</button>
+        &nbsp;
+        <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'declined')">Declined</button>
+      </div>
+      <br />
+      <br />
+    </div>  -->
+            <div class="col-xl-9 mx-auto" v-for="request in requests" v-bind:key="request.id">
               <article class="article mb-8">
                 <blockquote
                   class="
@@ -164,17 +186,34 @@
                     my-2
                   "
                 >
-                  <h2 class="mb-8 display-8 fw-normal">" Great things in business are never done by one person. "</h2>
-                  <div class="d-flex pt-2 justify-content-between align-items-center">
+                  <h2 class="mb-2 display-8 fw-normal">{{ request.song }}</h2>
+                  <p>{{ request.comments }}</p>
+                  <small>{{ relativeDate(request.created_at) }}</small>
+                  <br />
+                  <small>Status: {{ request.status }}</small>
+                  <div class="d-flex pt-2 justify-content-between align-items-center" v-if="getDJId() == currentDJ.id">
                     <div class="text-end">
-                      <a href="#!" class="btn hover-lift hover-shadow si-hover-twitter border border-dark">Approve</a>
-                      <a href="#!" class="btn hover-lift hover-shadow si-hover-twitter border border-dark">Decline</a>
+                      <button
+                        class="btn hover-lift hover-shadow si-hover-twitter border border-dark"
+                        v-if="isLoggedIn()"
+                        v-on:click="changeStatus(request, 'approved')"
+                      >
+                        Approve
+                      </button>
+                      <button
+                        href="#!"
+                        class="btn hover-lift hover-shadow si-hover-twitter border border-dark"
+                        v-if="isLoggedIn()"
+                        v-on:click="changeStatus(request, 'declined')"
+                      >
+                        Decline
+                      </button>
                     </div>
                   </div>
                 </blockquote>
               </article>
 
-              <ul class="list-unstyled mb-5 mb-lg-10">
+              <!-- <ul class="list-unstyled mb-5 mb-lg-10">
                 <li class="d-flex mb-3">
                   <div class="px-3 py-4 border rounded border-end">
                     <div class="d-flex mb-3 justify-content-between">
@@ -192,7 +231,7 @@
                     </p>
                   </div>
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </div>
         </div>

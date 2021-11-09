@@ -123,7 +123,7 @@
                     aria-labelledby="modalBasicLabel"
                     aria-hidden="true"
                   >
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content border-0">
                         <div class="modal-header border-0 bg-light">
                           <h5 class="modal-title">Your QR Code</h5>
