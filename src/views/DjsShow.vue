@@ -1,26 +1,4 @@
 <template>
-  <!-- <div class="djs-show">
-    <router-link class="button" :to="`/djs/${this.$route.params.id}/edit`">Edit Profile</router-link>
-    <br />
-    <h2>{{ currentDJ.name }}</h2>
-    <img :src="currentDJ.image_url" width="250px" />
-    <p>Info: {{ currentDJ.info }}</p>
-    <p>Website: {{ currentDJ.website }}</p>
-    <p>Email: {{ currentDJ.email }}</p>
-    <p>Serato Live Playlist URL: {{ currentDJ.serato_url }}</p>
-    <p>IG: {{ currentDJ.instagram }}</p>
-    <p>Twitter: {{ currentDJ.twitter }}</p>
-    <p>Facebook: {{ currentDJ.facebook }}</p>
-    <p>Venmo: {{ currentDJ.venmo }}</p>
-    <p>Cashapp: {{ currentDJ.cashapp }}</p>
-    <p>PayPal: {{ currentDJ.paypal }}</p>
-    <button v-on:click="showQRCode()">Show QR Code</button>
-
-    <br />
-
-  
-  </div> -->
-
   <main class="main-content" id="main-content">
     <section class="position-relative bg-white">
       <div class="container position-relative pt-3 pb-4">
@@ -231,9 +209,9 @@ export default {
     getDJId: function () {
       return localStorage.dj_id;
     },
-    showQRCode: function () {
-      document.querySelector("#qr-code").showModal();
-    },
+    // showQRCode: function () {
+    //   document.querySelector("#qr-code").showModal();
+    // },
     doPrint: function () {
       window.print();
     },

@@ -1,19 +1,4 @@
 <template>
-  <!-- <img :src="editDJParams.image_url" />
-  <form v-on:submit.prevent="updateDJ()">
-    <div>
-      <label>Profile Pic:&nbsp;</label>
-      <input type="file" v-on:change="setFile($event)" ref="fileInput" />
-    </div>
-
-    <br />
-    <div>
-      <button type="submit">Update</button>
-    </div>
-    <br />
-    <button v-on:click="deleteAccount()">Delete Account</button>
-  </form> -->
-
   <main class="main-content" id="main-content">
     <section class="position-relative">
       <div class="container position-relative">
