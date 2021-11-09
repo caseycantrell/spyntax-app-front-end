@@ -105,17 +105,55 @@
           <path d="M800 240H0L800 0V240Z" fill="currentColor" />
         </svg>
       </section>
+      <div class="py-5 d-grid">
+        <center>
+          <a
+            href="#request"
+            data-bs-toggle="modal"
+            aria-expanded="false"
+            class="btn btn-primary btn-hover-arrow btn-lg mb-4 me-0"
+          >
+            Make Request
+          </a>
+        </center>
 
-      <center>
-        <a
-          href="#request"
-          data-bs-toggle="modal"
-          aria-expanded="false"
-          class="btn btn-primary btn-hover-arrow btn-lg mb-6"
-        >
-          Make Request
-        </a>
-      </center>
+        <center>
+          <button
+            href="#nowPlaying"
+            data-bs-toggle="modal"
+            aria-expanded="false"
+            class="btn btn-primary btn-circle-ripple p-0 size-50 rounded-pill fs-3 lh-1 center-both me-4 mb-3"
+            v-on:click="songScrape()"
+          >
+            <i class="bi bi-play-fill fs-5 lh-1 align-middle"></i>
+          </button>
+          Show Current Song
+        </center>
+      </div>
+
+      <!-- Now playing modal -->
+      <div class="modal fade" id="nowPlaying" tabindex="-1" aria-labelledby="modalBasicLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content border-0">
+            <div class="modal-header border-0 bg-light">
+              <h5 class="modal-title">Now Playing:</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <i class="bi bi-x fs-5 lh-1"></i>
+              </button>
+            </div>
+            <div class="modal-body py-5 border-0">
+              <div v-if="currentSong !== null">
+                <h4>{{ currentSong }}</h4>
+              </div>
+            </div>
+            <div class="modal-footer bg-light border-0">
+              <button type="button" class="btn btn-white btn-sm" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New request modal -->
       <div class="modal fade" id="request" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -144,34 +182,10 @@
           </div>
         </div>
       </div>
-      <!-- <div class="py-5 d-grid">
-        <center>
-          <button class="btn btn-secondary btn-lg mb-2 me-1" v-on:click="newRequest()">Make Request</button>
-        </center>
-      </div> -->
+
       <section class="position-relative">
         <div class="container py-7">
           <div class="row">
-            <!-- <div v-for="request in requests" v-bind:key="request.id">
-      <div>
-        <strong>{{ request.song }}</strong>
-      </div>
-      <div>{{ request.comments }}</div>
-      <div>
-        <small>Status: {{ request.status }}</small>
-      </div>
-      <div>
-        <small>{{ relativeDate(request.created_at) }}</small>
-      </div>
-      <br />
-      <div v-if="getDJId() == currentDJ.id">
-        <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'approved')">Approved</button>
-        &nbsp;
-        <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'declined')">Declined</button>
-      </div>
-      <br />
-      <br />
-    </div>  -->
             <div class="col-xl-9 mx-auto" v-for="request in requests" v-bind:key="request.id">
               <article class="article mb-8">
                 <blockquote
@@ -194,19 +208,20 @@
                   <div class="d-flex pt-2 justify-content-between align-items-center" v-if="getDJId() == currentDJ.id">
                     <div class="text-end">
                       <button
-                        class="btn hover-lift hover-shadow si-hover-twitter border border-dark"
+                        class="rounded-pill btn btn-rise btn-outline-success m-2"
                         v-if="isLoggedIn()"
                         v-on:click="changeStatus(request, 'approved')"
                       >
-                        Approve
+                        <div class="btn-rise-bg bg-success"></div>
+                        <div class="btn-rise-text">Approve</div>
                       </button>
                       <button
-                        href="#!"
-                        class="btn hover-lift hover-shadow si-hover-twitter border border-dark"
+                        class="rounded-pill btn btn-rise btn-outline-danger m-2"
                         v-if="isLoggedIn()"
                         v-on:click="changeStatus(request, 'declined')"
                       >
-                        Decline
+                        <div class="btn-rise-bg bg-danger"></div>
+                        <div class="btn-rise-text">Decline</div>
                       </button>
                     </div>
                   </div>
