@@ -3,12 +3,12 @@
     <!--Main content-->
     <main>
       <!--page-hero--->
-      <section class="position-relative bg-primary jarallax overflow-hidden" data-jarallax=".9">
+      <section class="position-relative bg-secondary jarallax overflow-hidden" data-jarallax=".9">
         <!--Parallax image-->
-        <img src="/assets/img/turntable1.jpeg" class="jarallax-img opacity-70" alt="" />
+        <img src="/assets/img/turntable2.jpeg" class="jarallax-img opacity-70" alt="" />
         <div class="position-absolute start-0 top-0 w-100 h-100 bg-gradient-dark"></div>
         <div class="container pt-11 pt-lg-14 pb-7 pb-lg-9 position-relative z-index-1">
-          <div class="row pt-lg-9 pt-7 pb-lg-7">
+          <div class="row pt-lg-12 pt-7 pb-lg-7">
             <div class="col-xl-8">
               <h1 class="display-1 mb-4 mb-lg-5">Welcome to Spyntax</h1>
             </div>
