@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <section class="position-relative shadow pb-1 pb-lg-1">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <section class="position-relative shadow pb-0 pb-lg-0">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container position-relative">
           <a class="navbar-brand" href="/">
-            <img src="/assets/img/spyntax2.png" width="250px" alt="" class="img-fluid" />
+            <img src="/assets/img/spyntax1.png" width="250px" alt="" class="img-fluid" />
           </a>
 
           <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">

@@ -20,7 +20,9 @@
         <div class="container py-7 py-lg-12">
           <div class="row mb-5 mb-lg-9 justify-content-between align-items-end">
             <div class="col-lg-7 mx-auto text-center">
-              <h2 class="display-4 mb-0" data-aos="fade-up">We're web design & development specialists</h2>
+              <h2 class="display-4 mb-0" data-aos="fade-up">
+                An application for making real-time song requests to DJs.
+              </h2>
             </div>
           </div>
           <div class="row pb-lg-7 justify-content-around">
