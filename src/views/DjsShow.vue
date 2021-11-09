@@ -167,19 +167,6 @@
                       </div>
                     </div>
                   </div>
-                  <!-- <dialog id="qr-code">
-                    <form method="dialog">
-                      <div id="printable-qr-code">
-                        <img
-                          :src="`http://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.netlify.app/requests?dj_id=${currentDJ.id}&size=500x500&margin=20&bgcolor=000&color=fff&ecc=H`"
-                        />
-                      </div>
-                      <br />
-                      <button v-on:click="doPrint()">Print</button>
-                      &nbsp;
-                      <button>Close</button>
-                    </form>
-                  </dialog> -->
                 </div>
               </div>
               <div class="col-lg-9">

@@ -172,6 +172,7 @@ export default {
       formData.append("email", this.editDJParams.email);
       formData.append("website", this.editDJParams.website);
       formData.append("instagram", this.editDJParams.instagram);
+      formData.append("serato_url", this.editDJParams.serato_url);
       formData.append("facebook", this.editDJParams.facebook);
       formData.append("twitter", this.editDJParams.twitter);
       formData.append("venmo", this.editDJParams.venmo);
