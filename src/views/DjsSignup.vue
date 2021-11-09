@@ -6,7 +6,7 @@
       <div class="row align-items-center justify-content-center">
         <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 z-index-2">
           <h2 class="mb-1 display-6">Hello.</h2>
-          <p class="mb-4 text-muted">To get started, Please signup below...</p>
+          <p class="mb-4 text-muted">Please signup below to get started...</p>
           <div class="position-relative">
             <div>
               <form v-on:submit.prevent="submit()">

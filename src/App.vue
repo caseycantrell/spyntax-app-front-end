@@ -46,9 +46,8 @@
           </div>
         </div>
       </nav>
+      <router-view />
     </section>
-
-    <router-view />
   </div>
 </template>
 

@@ -132,57 +132,37 @@
                         </a>
                       </li>
                     </ul>
-                    <span class="badge px-2 bg-primary rounded-pill">Display QR Code</span>
+                    <a href="#modalBasic" data-bs-toggle="modal" aria-expanded="false" class="btn btn-primary">
+                      Display QR Code
+                    </a>
                   </div>
-                  <div
-                    class="modal fade"
-                    id="exampleModal"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="exampleModalLabel"
-                    aria-hidden="true"
-                  >
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">...</div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Launch demo modal
-                  </button>
 
                   <!-- Modal -->
                   <div
                     class="modal fade"
-                    id="exampleModal"
+                    id="modalBasic"
                     tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="exampleModalLabel"
+                    aria-labelledby="modalBasicLabel"
                     aria-hidden="true"
                   >
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                    <div class="modal-dialog">
+                      <div class="modal-content border-0">
+                        <div class="modal-header border-0 bg-light">
+                          <h5 class="modal-title">Your QR Code</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="bi bi-x fs-5 lh-1"></i>
                           </button>
                         </div>
-                        <div class="modal-body">...</div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                        <div class="modal-body py-2 border-0">
+                          <center>
+                            <img
+                              :src="`http://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.netlify.app/requests?dj_id=${currentDJ.id}&size=400x400&margin=20&bgcolor=000&color=fff&ecc=H`"
+                            />
+                          </center>
+                        </div>
+                        <div class="modal-footer bg-light border-0">
+                          <button type="button" class="btn btn-white btn-sm" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary btn-sm" v-on:click="doPrint()">Print</button>
                         </div>
                       </div>
                     </div>
