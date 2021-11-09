@@ -1,6 +1,6 @@
 <template>
   <div class="requests-index">
-    <h3>{{ currentDJ.name }}</h3>
+    <!-- <h3>{{ currentDJ.name }}</h3>
     <img :src="currentDJ.image_url" />
     <p>Info: {{ currentDJ.info }}</p>
     <p>Website: {{ currentDJ.website }}</p>
@@ -48,9 +48,9 @@
       </div>
       <br />
       <br />
-    </div>
+    </div> -->
 
-    <dialog id="new-request">
+    <!-- <dialog id="new-request">
       <form method="dialog">
         <h1>Make a Request</h1>
         <p>
@@ -64,7 +64,117 @@
         <button v-on:click="createRequest()">Submit</button>
         <button>Close</button>
       </form>
-    </dialog>
+    </dialog> -->
+    <main>
+      <section
+        id="article-header"
+        class="position-relative bg-gradient-secondary jarallax text-white"
+        data-jarallax=".3"
+      >
+        <img src="assets/img/turntable2.jpeg" alt="" class="jarallax-img opacity-30" />
+        <div class="container pt-11 pt-lg-14 pb-7 pb-lg-12 position-relative">
+          <article class="row">
+            <div class="col-lg-10 col-xl-8">
+              <div class="position-relative pb-3 pb-lg-0">
+                <div>
+                  <h2 class="my-3 display-3">Requests</h2>
+                  <div class="d-flex mb-0 small align-items-center">
+                    <img src="assets/img/avatar/6.jpg" alt="" class="size-40 rounded-circle me-2" />
+                    <span class="text-muted d-inline-block">
+                      By
+                      <a href="#!" class="text-white">Andrew</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!--/.article-->
+        </div>
+        <!--Divider-->
+        <svg
+          class="position-absolute start-0 bottom-0 text-white"
+          preserveAspectRatio="none"
+          width="100%"
+          height="120"
+          viewBox="0 0 800 240"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M800 240H0L800 0V240Z" fill="currentColor" />
+        </svg>
+      </section>
+      <!--/.Article header-end-->
+
+      <section class="position-relative">
+        <div class="container py-7">
+          <div class="row">
+            <div class="col-xl-9 mx-auto">
+              <article class="article mb-8">
+                <blockquote
+                  class="
+                    blockquote
+                    rounded-3 rounded-0
+                    p-4
+                    py-lg-2
+                    bg-white
+                    shadow-lg
+                    border-success border-start border-5
+                    my-2
+                  "
+                >
+                  <h2 class="mb-8 display-8 fw-normal">" Great things in business are never done by one person. "</h2>
+                  <div class="d-flex pt-2 justify-content-between align-items-center">
+                    <div class="text-end">
+                      <a href="#!" class="btn hover-lift hover-shadow si-hover-twitter border border-dark">Approve</a>
+                      <a href="#!" class="btn hover-lift hover-shadow si-hover-twitter border border-dark">Decline</a>
+                    </div>
+                  </div>
+                </blockquote>
+              </article>
+
+              <ul class="list-unstyled mb-5 mb-lg-10">
+                <li class="d-flex mb-3">
+                  <div class="px-3 py-4 border rounded border-end">
+                    <div class="d-flex mb-3 justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <h6 class="mb-0 me-3">Jessica</h6>
+                      </div>
+                      <div>
+                        <a href="#!" class="btn hover-lift hover-shadow si-hover-twitter border border-dark">Approve</a>
+                        <a href="#!" class="btn hover-lift hover-shadow si-hover-twitter border border-dark">Decline</a>
+                      </div>
+                    </div>
+                    <p class="mb-0">
+                      It is a long fact that a reader will be distracted by the readable content of a page when looking
+                      at its layout of a page when looking at its layout.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="position-relative overflow-hidden position-relative bg-white">
+        <svg
+          class="position-absolute start-50 bottom-0 translate-middle-x text-light"
+          xmlns="http://www.w3.org/2000/svg"
+          width="150%"
+          height="130%"
+          preserveAspectRatio="none"
+          viewBox="0 0 189 105"
+          fill="none"
+        >
+          <path
+            fill-opacity="1"
+            d="M180.928 83.1476C151.384 111.424 35.6911 112.547 7.27525 84.8329C-20.9151 57.1185 37.9464 0.566018 95.9058 0.004238C153.64 -0.557542 210.471 54.8714 180.928 83.1476Z"
+            fill="currentColor"
+          />
+        </svg>
+      </section>
+    </main>
   </div>
 </template>
 
