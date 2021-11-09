@@ -79,10 +79,12 @@
                 <div>
                   <h2 class="my-3 display-3">Requests</h2>
                   <div class="d-flex mb-4 small align-items-center">
-                    <img :src="currentDJ.image_url" alt="" class="size-60 rounded-circle me-2" />
+                    <a :href="`/djs/${this.$route.query.dj_id}`">
+                      <img :src="currentDJ.image_url" alt="" class="size-60 rounded-circle me-2" />
+                    </a>
                     <span class="text-muted d-inline-block">
                       For
-                      <a href="#!" class="text-white">{{ currentDJ.name }}</a>
+                      <a :href="`/djs/${this.$route.query.dj_id}`" class="text-white">{{ currentDJ.name }}</a>
                     </span>
                   </div>
                 </div>
@@ -113,30 +115,30 @@
             aria-expanded="false"
             class="btn btn-primary btn-hover-arrow btn-lg mb-4 me-0"
           >
-            Make Request
+            Make a Request
           </a>
         </center>
-
-        <center>
-          <button
-            href="#nowPlaying"
-            data-bs-toggle="modal"
-            aria-expanded="false"
-            class="btn btn-primary btn-circle-ripple p-0 size-50 rounded-pill fs-3 lh-1 center-both me-4 mb-3"
-            v-on:click="songScrape()"
-          >
-            <i class="bi bi-play-fill fs-5 lh-1 align-middle"></i>
-          </button>
-          Show Current Song
-        </center>
+        <div>
+          <center>
+            <button
+              href="#nowPlaying"
+              data-bs-toggle="modal"
+              aria-expanded="false"
+              class="btn btn-primary btn-circle-ripple p-0 size-50 rounded-pill fs-3 lh-1 center-both me-4 mb-3"
+              v-on:click="songScrape()"
+            >
+              <i class="bi bi-play-fill fs-5 lh-1 align-middle"></i>
+            </button>
+            <strong>Show Current Song</strong>
+          </center>
+        </div>
       </div>
-
       <!-- Now playing modal -->
       <div class="modal fade" id="nowPlaying" tabindex="-1" aria-labelledby="modalBasicLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border-0">
             <div class="modal-header border-0 bg-light">
-              <h5 class="modal-title">Now Playing:</h5>
+              <h2 class="modal-title">Now Playing:</h2>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 <i class="bi bi-x fs-5 lh-1"></i>
               </button>
@@ -252,7 +254,7 @@
         </div>
       </section>
 
-      <section class="position-relative overflow-hidden position-relative bg-white">
+      <!-- <section class="position-relative overflow-hidden position-relative bg-white">
         <svg
           class="position-absolute start-50 bottom-0 translate-middle-x text-light"
           xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +270,7 @@
             fill="currentColor"
           />
         </svg>
-      </section>
+      </section> -->
     </main>
   </div>
 </template>

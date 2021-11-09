@@ -16,7 +16,7 @@
                   <div class="card bg-gradient-light h-lg-100 p-3">
                     <!--profile image-->
                     <div
-                      class="size-180 mb-4 rounded-circle shadow bg-no-repeat overflow-hidden"
+                      class="size-200 mb-4 rounded-circle shadow bg-no-repeat overflow-hidden"
                       style="background-image"
                     >
                       <img :src="currentDJ.image_url" width="250px" />
@@ -110,12 +110,13 @@
                         </a>
                       </li>
                     </ul>
+
                     <a href="#modalBasic" data-bs-toggle="modal" aria-expanded="false" class="btn btn-primary">
                       Display QR Code
                     </a>
                   </div>
 
-                  <!-- Modal -->
+                  <!-- QR Code Modal -->
                   <div
                     class="modal fade"
                     id="modalBasic"
@@ -149,7 +150,7 @@
               </div>
               <div class="col-lg-9">
                 <div class="d-flex flex-column h-100">
-                  <nav class="nav mb-5 nav-pills">
+                  <nav class="nav mb-3 nav-pills" v-if="getDJId() == currentDJ.id">
                     <router-link :to="`/djs/${this.$route.params.id}/edit`" class="nav-link">
                       <i class="bi bi-gear me-2 align-middle"></i>
                       Edit Profile
@@ -167,10 +168,6 @@
                       <div class="col-md-6 mb-3">
                         <label class="form-label"><strong>Email address</strong></label>
                         <div class="form-control">{{ currentDJ.email }}</div>
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <label class="form-label"><strong>Serato Live Playlist URL</strong></label>
-                        <div class="form-control">{{ currentDJ.serato_url }}</div>
                       </div>
 
                       <div class="col-md-8 mb-3">
@@ -209,9 +206,6 @@ export default {
     getDJId: function () {
       return localStorage.dj_id;
     },
-    // showQRCode: function () {
-    //   document.querySelector("#qr-code").showModal();
-    // },
     doPrint: function () {
       window.print();
     },

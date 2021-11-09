@@ -48,10 +48,6 @@
                   Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for
                   layouts and visual mockups.
                 </p>
-                <a href="#!" class="link-hover-underline text-muted fw-semibold">
-                  Learn More
-                  <i class="bi bi-arrow-right-short align-middle ms-1 lh-1 fs-5"></i>
-                </a>
               </div>
             </div>
 
@@ -77,10 +73,6 @@
                   Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for
                   layouts and visual mockups.
                 </p>
-                <a href="#!" class="link-hover-underline text-muted fw-semibold">
-                  Learn More
-                  <i class="bi bi-arrow-right-short align-middle ms-1 lh-1 fs-5"></i>
-                </a>
               </div>
             </div>
 
@@ -106,10 +98,6 @@
                   Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for
                   layouts and visual mockups.
                 </p>
-                <a href="#!" class="link-hover-underline text-muted fw-semibold">
-                  Learn More
-                  <i class="bi bi-arrow-right-short align-middle ms-1 lh-1 fs-5"></i>
-                </a>
               </div>
             </div>
             <!--Feature column-->
@@ -134,10 +122,6 @@
                   Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for
                   layouts and visual mockups.
                 </p>
-                <a href="#!" class="link-hover-underline text-muted fw-semibold">
-                  Learn More
-                  <i class="bi bi-arrow-right-short align-middle ms-1 lh-1 fs-5"></i>
-                </a>
               </div>
             </div>
           </div>

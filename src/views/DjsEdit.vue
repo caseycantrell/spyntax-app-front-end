@@ -18,21 +18,23 @@
                   <div class="card border-light p-3 mb-3">
                     <h5 class="mb-4">Edit profile</h5>
 
-                    <form v-on:submit.prevent="updateDJ()">
+                    <form>
                       <div class="row align-items-center">
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                           <div class="row">
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-6 mb-0">
                               <div class="size-160 mb-5 rounded-circle shadow bg-no-repeat" style="background-image">
                                 <img :src="editDJParams.image_url" width="250px" />
                               </div>
-                              <input
-                                type="file"
-                                class="size-190"
-                                id="profile_pic"
-                                v-on:change="setFile($event)"
-                                ref="fileInput"
-                              />
+                              <div>
+                                <input
+                                  type="file"
+                                  class="size-190"
+                                  id="profile_pic"
+                                  v-on:change="setFile($event)"
+                                  ref="fileInput"
+                                />
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -84,10 +86,18 @@
                       </div>
                       <hr class="mt-5 mb-3" />
                       <div class="text-end">
-                        <button type="button" class="btn btn-primary" v-on:click="updateDJ()">Save changes</button>
-                        <button type="button" class="btn btn-danger" v-on:click="deleteAccount()">
-                          Delete Account
+                        <button class="btn btn-primary btn-hover-arrow mb-1" v-on:click="updateDJ()">
+                          <span>Save Changes</span>
                         </button>
+                        <br />
+                        <br />
+                        <button class="rounded-pill btn btn-rise btn-outline-danger m-2" v-on:click="deleteAccount()">
+                          <div class="btn-rise-bg bg-danger"></div>
+                          <div class="btn-rise-text">Delete Account</div>
+                        </button>
+                        <!-- <button class="btn btn-danger btn-hover-arrow mb-1" v-on:click="deleteAccount()">
+                          <span>Delete Account</span>
+                        </button> -->
                       </div>
                     </form>
                   </div>
