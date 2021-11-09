@@ -64,27 +64,27 @@
                           <input class="form-control" type="text" id="website" v-model="editDJParams.website" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="twitter">Twitter</label>
+                          <label class="form-label" for="twitter">Twitter Handle</label>
                           <input class="form-control" type="text" id="twitter" v-model="editDJParams.twitter" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="facebook">Facebook</label>
+                          <label class="form-label" for="facebook">Facebook.com/</label>
                           <input class="form-control" type="text" id="facebook" v-model="editDJParams.facebook" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="instagram">Instagram</label>
+                          <label class="form-label" for="instagram">Instagram Username</label>
                           <input class="form-control" type="text" id="instagram" v-model="editDJParams.instagram" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="venmo">Venmo</label>
+                          <label class="form-label" for="venmo">Venmo.com/</label>
                           <input class="form-control" type="text" id="venmo" v-model="editDJParams.venmo" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="cashapp">CashApp</label>
+                          <label class="form-label" for="cashapp">CashApp CashTag</label>
                           <input class="form-control" type="text" id="cashapp" v-model="editDJParams.cashapp" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="paypal">PayPal</label>
+                          <label class="form-label" for="paypal">PayPal.me/</label>
                           <input class="form-control" type="text" id="paypal" v-model="editDJParams.paypal" />
                         </div>
                         <div class="col-md-6 mb-3">

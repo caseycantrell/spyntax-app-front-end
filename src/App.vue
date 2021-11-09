@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <section class="position-relative shadow pb-7 pb-lg-12">
+    <section class="position-relative shadow pb-1 pb-lg-1">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container position-relative">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="/">
             <img src="/assets/img/spyntax2.png" width="250px" alt="" class="img-fluid" />
           </a>
 

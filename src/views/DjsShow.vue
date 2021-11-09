@@ -47,28 +47,56 @@
                     <ul class="list-unstyled border-bottom pb-3 mb-3">
                       <li class="d-flex align-items-stretch mb-2">
                         <i class="bi bi-globe me-2 align-middle text-muted"></i>
-                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.website }}</a>
+                        <a :href="`https://${currentDJ.website}`" target="_blank" class="small link-hover-decoration">
+                          {{ currentDJ.website }}
+                        </a>
                       </li>
                       <li class="d-flex align-items-stretch mb-2">
                         <i class="bi bi-envelope me-2 align-middle text-muted"></i>
-                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.email }}</a>
+                        <a :href="`mailto:${currentDJ.email}`" class="small link-hover-decoration">
+                          {{ currentDJ.email }}
+                        </a>
                       </li>
 
                       <li class="d-flex align-items-stretch mb-2">
                         <i class="bi bi-twitter me-2 align-middle text-muted"></i>
-                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.twitter }}</a>
+                        <a
+                          :href="`https://www.twitter.com/${currentDJ.twitter}`"
+                          target="_blank"
+                          class="small link-hover-decoration"
+                        >
+                          {{ currentDJ.twitter }}
+                        </a>
                       </li>
                       <li class="d-flex align-items-stretch mb-2">
                         <i class="bi bi-facebook me-2 align-middle text-muted"></i>
-                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.facebook }}</a>
+                        <a
+                          :href="`http://www.facebook.com/${currentDJ.facebook}`"
+                          target="_blank"
+                          class="small link-hover-decoration"
+                        >
+                          {{ currentDJ.facebook }}
+                        </a>
                       </li>
                       <li class="d-flex align-items-stretch mb-2">
                         <i class="bi bi-instagram me-2 align-middle text-muted"></i>
-                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.instagram }}</a>
+                        <a
+                          :href="`https://www.instagram.com/${currentDJ.instagram}`"
+                          target="_blank"
+                          class="small link-hover-decoration"
+                        >
+                          {{ currentDJ.instagram }}
+                        </a>
                       </li>
                       <li class="d-flex align-items-stretch mb-2">
                         <i class="bi bi-cash me-2 align-middle text-muted"></i>
-                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.venmo }}</a>
+                        <a
+                          :href="`https://www.venmo.com/u/${currentDJ.venmo}`"
+                          target="_blank"
+                          class="small link-hover-decoration"
+                        >
+                          {{ currentDJ.venmo }}
+                        </a>
                       </li>
                       <li class="d-flex align-items-stretch mb-2">
                         <svg
@@ -85,11 +113,23 @@
                           />
                         </svg>
                         <i class="bi bi-paypal me-2 align-middle text-muted"></i>
-                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.paypal }}</a>
+                        <a
+                          :href="`https://www.paypal.me/${currentDJ.paypal}`"
+                          target="_blank"
+                          class="small link-hover-decoration"
+                        >
+                          {{ currentDJ.paypal }}
+                        </a>
                       </li>
                       <li class="d-flex align-items-stretch mb-2">
                         <i class="bi bi-currency-dollar me-2 align-middle text-muted"></i>
-                        <a href="#!" class="small link-hover-decoration">{{ currentDJ.cashapp }}</a>
+                        <a
+                          :href="`https://www.cash.app/${currentDJ.cashapp}`"
+                          target="_blank"
+                          class="small link-hover-decoration"
+                        >
+                          {{ currentDJ.cashapp }}
+                        </a>
                       </li>
                     </ul>
                     <span class="badge px-2 bg-primary rounded-pill">Display QR Code</span>
