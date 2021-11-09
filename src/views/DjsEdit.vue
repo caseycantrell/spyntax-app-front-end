@@ -81,7 +81,17 @@
 
                         <div class="col-md-8">
                           <label class="form-label" for="info"><strong>Bio</strong></label>
-                          <textarea class="form-control" type="text" id="info" v-model="editDJParams.info" />
+                          <textarea
+                            class="form-control"
+                            type="text"
+                            id="info"
+                            v-model="editDJParams.info"
+                            maxlength="500"
+                          />
+                          <br />
+                          <small v-if="editDJParams.info.length > 150">
+                            {{ 500 - editDJParams.info.length }} characters remaining...
+                          </small>
                         </div>
                       </div>
                       <hr class="mt-5 mb-3" />
