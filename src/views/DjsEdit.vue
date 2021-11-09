@@ -39,49 +39,49 @@
                           </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="name">DJ Name</label>
+                          <label class="form-label" for="name"><strong>DJ Name</strong></label>
                           <input class="form-control" id="name" type="text" v-model="editDJParams.name" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="email">Email</label>
+                          <label class="form-label" for="email"><strong>Email</strong></label>
                           <input class="form-control" type="email" id="email" v-model="editDJParams.email" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="website">Website</label>
+                          <label class="form-label" for="website"><strong>Website</strong></label>
                           <input class="form-control" type="text" id="website" v-model="editDJParams.website" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="twitter">Twitter Handle</label>
+                          <label class="form-label" for="twitter"><strong>Twitter Handle</strong></label>
                           <input class="form-control" type="text" id="twitter" v-model="editDJParams.twitter" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="facebook">Facebook.com/</label>
+                          <label class="form-label" for="facebook"><strong>Facebook.com/</strong></label>
                           <input class="form-control" type="text" id="facebook" v-model="editDJParams.facebook" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="instagram">Instagram Username</label>
+                          <label class="form-label" for="instagram"><strong>Instagram Username</strong></label>
                           <input class="form-control" type="text" id="instagram" v-model="editDJParams.instagram" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="venmo">Venmo.com/</label>
+                          <label class="form-label" for="venmo"><strong>Venmo.com/</strong></label>
                           <input class="form-control" type="text" id="venmo" v-model="editDJParams.venmo" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="cashapp">CashApp CashTag</label>
+                          <label class="form-label" for="cashapp"><strong>CashApp CashTag</strong></label>
                           <input class="form-control" type="text" id="cashapp" v-model="editDJParams.cashapp" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="paypal">PayPal.me/</label>
+                          <label class="form-label" for="paypal"><strong>PayPal.me/</strong></label>
                           <input class="form-control" type="text" id="paypal" v-model="editDJParams.paypal" />
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label class="form-label" for="serato-url">Serato Live Playlist URL</label>
+                          <label class="form-label" for="serato-url"><strong>Serato Live Playlist URL</strong></label>
                           <input class="form-control" type="text" id="serato-url" v-model="editDJParams.serato_url" />
                         </div>
 
                         <div class="col-md-8">
-                          <label class="form-label" for="info">Bio</label>
-                          <input class="form-control" type="text" id="info" v-model="editDJParams.info" />
+                          <label class="form-label" for="info"><strong>Bio</strong></label>
+                          <textarea class="form-control" type="text" id="info" v-model="editDJParams.info" />
                         </div>
                       </div>
                       <hr class="mt-5 mb-3" />
@@ -95,9 +95,6 @@
                           <div class="btn-rise-bg bg-danger"></div>
                           <div class="btn-rise-text">Delete Account</div>
                         </button>
-                        <!-- <button class="btn btn-danger btn-hover-arrow mb-1" v-on:click="deleteAccount()">
-                          <span>Delete Account</span>
-                        </button> -->
                       </div>
                     </form>
                   </div>
