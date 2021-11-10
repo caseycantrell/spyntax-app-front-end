@@ -119,9 +119,6 @@
 </template>
 
 <style scoped>
-img {
-  width: 250px;
-}
 small {
   color: red;
 }

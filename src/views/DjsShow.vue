@@ -158,7 +158,7 @@
                   </nav>
 
                   <div class="card shadow-sm p-3 h-100">
-                    <h5 class="mb-4">Profile Details</h5>
+                    <h5 class="mb-4">DJ Details</h5>
 
                     <div class="row align-items-center">
                       <div class="col-md-6 mb-3">

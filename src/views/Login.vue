@@ -53,6 +53,10 @@
                 </div>
               </form>
 
+              <div v-for="error in errors" v-bind:key="error">
+                <br />
+                <small>{{ error }}</small>
+              </div>
               <!---->
               <p class="pt-4 small text-muted">
                 Don’t have an account yet?
