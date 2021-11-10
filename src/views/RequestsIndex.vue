@@ -154,36 +154,6 @@
         </div>
       </div>
 
-      <!-- New request modal -->
-      <div class="modal fade" id="request" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Make a Request</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">Song:</label>
-                  <input type="text" class="form-control" id="recipient-name" v-model="newRequestParams.song" />
-                </div>
-                <div class="mb-3">
-                  <label for="message-text" class="col-form-label">Comments:</label>
-                  <textarea class="form-control" id="message-text" v-model="newRequestParams.comments"></textarea>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="createRequest()">
-                    Submit
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- <section class="position-relative">
         <div class="container py-7">
           <div class="row">
@@ -269,33 +239,39 @@
    
 
       </ul>  -->
+
       <div class="container py-7 py-lg-12 position-relative z-index-1">
         <ul class="list-group">
-          <li class="list-group-item py-3">
+          <li class="list-group-item py-7">
             <div class="d-flex align-items-start">
               <div class="flex-grow-1">
                 <div class="d-sm-flex align-items-center" v-for="request in requests" v-bind:key="request.id">
                   <div class="mb-3 mb-sm-4 flex-grow-1">
                     <h4>{{ request.song }}</h4>
-                    <h6>Comments: {{ request.comments }}</h6>
-                    <p class="mb-0 small">Status: {{ request.status }}</p>
+                    <p>Comments: {{ request.comments }}</p>
+                    <small class="mb-0 small">Status: {{ request.status }}</small>
+                    <i class="me-1 bi bi-check fs-5 lh-1" v-if="request.status == 'approved'" style="color: green"></i>
+                    <i
+                      class="me-1 bi bi-x fs-5 lh-1 align-middle"
+                      v-if="request.status == 'declined'"
+                      style="color: red"
+                    ></i>
                   </div>
                   <div class="">
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center" v-if="getDJId() == currentDJ.id">
                       <a
-                        class="btn btn-sm btn-outline-light border text-secondary shadow-sm"
-                        v-if="isLoggedIn()"
+                        class="btn btn-sm btn-outline-light border text-success shadow-sm"
                         v-on:click="changeStatus(request, 'approved')"
                       >
                         <i class="me-1 bi bi-check fs-6 lh-1"></i>
                         Approve
                       </a>
                       <a
-                        class="text-danger ms-2 ms-lg-3 small"
-                        v-if="isLoggedIn()"
+                        class="btn btn-sm btn-outline-light border text-danger shadow-sm"
                         v-on:click="changeStatus(request, 'declined')"
+                        style="color: red"
                       >
-                        <i class="me-1 bi bi-x fs-6 lh-1 align-middle"></i>
+                        <i class="me-1 bi bi-x fs-6 lh-1 align-middle" style="color: red"></i>
                         Decline
                       </a>
                     </div>
@@ -305,8 +281,12 @@
             </div>
           </li>
         </ul>
+        <br />
         <center>
-          <button>CLEAR</button>
+          <a class="rounded-pill btn btn-rise btn-outline-danger m-2" v-on:click="clearRequests()">
+            <div class="btn-rise-bg bg-danger"></div>
+            <div class="btn-rise-text">Clear All Requests</div>
+          </a>
         </center>
       </div>
       <section class="position-relative overflow-hidden position-relative bg-white">
@@ -326,6 +306,35 @@
           />
         </svg>
       </section>
+      <!-- New request modal -->
+      <div class="modal fade" id="request" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Make a Request</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Song:</label>
+                  <input type="text" class="form-control" id="recipient-name" v-model="newRequestParams.song" />
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Comments:</label>
+                  <textarea class="form-control" id="message-text" v-model="newRequestParams.comments"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="createRequest()">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 </template>
