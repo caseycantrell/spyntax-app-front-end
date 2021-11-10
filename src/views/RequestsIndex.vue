@@ -232,10 +232,10 @@
           </div>
         </div>
       </section> -->
-      <ul class="list-unstyled mb-4 mb-lg-6 px-8">
-        <li class="d-flex mb-1 py-3" v-for="request in requests" v-bind:key="request.id">
+      <!-- <ul class="list-unstyled mb-4 mb-lg-6 px-8">
+        <li class="mb-1 py-3" v-for="request in requests" v-bind:key="request.id">
           <div class="px-4 py-4 border rounded border-end">
-            <div class="d-flex mb-3 justify-content-between">
+            <div class="mb-3 justify-content-between">
               <div class="d-flex align-items-center">
                 <h6 class="mb-0 me-3">{{ request.song }}</h6>
                 <small class="text-muted">{{ relativeDate(request.created_at) }}</small>
@@ -245,15 +245,71 @@
               {{ request.comments }}
             </p>
             <br />
-            <button class="btn btn-outline-success mb-2 me-1">Approve</button>
-            <button class="btn btn-outline-danger mb-2 me-1">Decline</button>
+            <div>
+              <small class="text-muted">Status: {{ request.status }}</small>
+            </div>
+            <div class="d-flex pt-2 align-items-center" v-if="getDJId() == currentDJ.id">
+              <button
+                class="btn btn-outline-primary mb-2 me-1"
+                v-if="isLoggedIn()"
+                v-on:click="changeStatus(request, 'approved')"
+              >
+                Approve
+              </button>
+              <button
+                class="btn btn-outline-danger mb-2 me-1"
+                v-if="isLoggedIn()"
+                v-on:click="changeStatus(request, 'declined')"
+              >
+                Decline
+              </button>
+            </div>
           </div>
         </li>
-        <!--media-->
+   
 
-        <!--media-->
-      </ul>
-      <!-- <section class="position-relative overflow-hidden position-relative bg-white">
+      </ul>  -->
+      <div class="container py-7 py-lg-12 position-relative z-index-1">
+        <ul class="list-group">
+          <li class="list-group-item py-3">
+            <div class="d-flex align-items-start">
+              <div class="flex-grow-1">
+                <div class="d-sm-flex align-items-center" v-for="request in requests" v-bind:key="request.id">
+                  <div class="mb-3 mb-sm-4 flex-grow-1">
+                    <h4>{{ request.song }}</h4>
+                    <h6>Comments: {{ request.comments }}</h6>
+                    <p class="mb-0 small">Status: {{ request.status }}</p>
+                  </div>
+                  <div class="">
+                    <div class="d-flex align-items-center">
+                      <a
+                        class="btn btn-sm btn-outline-light border text-secondary shadow-sm"
+                        v-if="isLoggedIn()"
+                        v-on:click="changeStatus(request, 'approved')"
+                      >
+                        <i class="me-1 bi bi-check fs-6 lh-1"></i>
+                        Approve
+                      </a>
+                      <a
+                        class="text-danger ms-2 ms-lg-3 small"
+                        v-if="isLoggedIn()"
+                        v-on:click="changeStatus(request, 'declined')"
+                      >
+                        <i class="me-1 bi bi-x fs-6 lh-1 align-middle"></i>
+                        Decline
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <center>
+          <button>CLEAR</button>
+        </center>
+      </div>
+      <section class="position-relative overflow-hidden position-relative bg-white">
         <svg
           class="position-absolute start-50 bottom-0 translate-middle-x text-light"
           xmlns="http://www.w3.org/2000/svg"
@@ -269,19 +325,10 @@
             fill="currentColor"
           />
         </svg>
-      </section> -->
+      </section>
     </main>
   </div>
 </template>
-
-<style>
-.btn-primary {
-  color: #fff;
-  background-color: #23b8aa;
-  border-color: #23b8aa;
-  box-shadow: 0 0 0 rgba(255, 255, 255, 0), 0 0 0 transparent;
-}
-</style>
 
 <script>
 import axios from "axios";
@@ -385,7 +432,6 @@ export default {
     },
     songScrape: function () {
       const url = `https://cors-anywhere.herokuapp.com/${this.currentDJ.serato_url}`;
-      console.log(url);
       axios.get(url).then((response) => {
         const $ = cheerio.load(response.data);
         const song = $(".playlist-trackname").last().text();
