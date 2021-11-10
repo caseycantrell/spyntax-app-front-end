@@ -65,6 +65,7 @@
         <button>Close</button>
       </form>
     </dialog> -->
+
     <main>
       <section
         id="article-header"
@@ -91,10 +92,7 @@
               </div>
             </div>
           </article>
-
-          <!--/.article-->
         </div>
-        <!--Divider-->
 
         <svg
           class="position-absolute start-0 bottom-0 text-white"
@@ -186,7 +184,7 @@
         </div>
       </div>
 
-      <section class="position-relative">
+      <!-- <section class="position-relative">
         <div class="container py-7">
           <div class="row">
             <div class="col-xl-9 mx-auto" v-for="request in requests" v-bind:key="request.id">
@@ -230,31 +228,31 @@
                   </div>
                 </blockquote>
               </article>
-
-              <!-- <ul class="list-unstyled mb-5 mb-lg-10">
-                <li class="d-flex mb-3">
-                  <div class="px-3 py-4 border rounded border-end">
-                    <div class="d-flex mb-3 justify-content-between">
-                      <div class="d-flex align-items-center">
-                        <h6 class="mb-0 me-3">Jessica</h6>
-                      </div>
-                      <div>
-                        <a href="#!" class="btn hover-lift hover-shadow si-hover-twitter border border-dark">Approve</a>
-                        <a href="#!" class="btn hover-lift hover-shadow si-hover-twitter border border-dark">Decline</a>
-                      </div>
-                    </div>
-                    <p class="mb-0">
-                      It is a long fact that a reader will be distracted by the readable content of a page when looking
-                      at its layout of a page when looking at its layout.
-                    </p>
-                  </div>
-                </li>
-              </ul> -->
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
+      <ul class="list-unstyled mb-4 mb-lg-6 px-8">
+        <li class="d-flex mb-1 py-3" v-for="request in requests" v-bind:key="request.id">
+          <div class="px-4 py-4 border rounded border-end">
+            <div class="d-flex mb-3 justify-content-between">
+              <div class="d-flex align-items-center">
+                <h6 class="mb-0 me-3">{{ request.song }}</h6>
+                <small class="text-muted">{{ relativeDate(request.created_at) }}</small>
+              </div>
+            </div>
+            <p class="mb-0">
+              {{ request.comments }}
+            </p>
+            <br />
+            <button class="btn btn-outline-success mb-2 me-1">Approve</button>
+            <button class="btn btn-outline-danger mb-2 me-1">Decline</button>
+          </div>
+        </li>
+        <!--media-->
 
+        <!--media-->
+      </ul>
       <!-- <section class="position-relative overflow-hidden position-relative bg-white">
         <svg
           class="position-absolute start-50 bottom-0 translate-middle-x text-light"
@@ -276,9 +274,12 @@
   </div>
 </template>
 
-<style scoped>
-img {
-  width: 150px;
+<style>
+.btn-primary {
+  color: #fff;
+  background-color: #23b8aa;
+  border-color: #23b8aa;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0), 0 0 0 transparent;
 }
 </style>
 

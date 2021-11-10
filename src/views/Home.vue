@@ -131,6 +131,15 @@
   </body>
 </template>
 
+<style>
+.btn-primary {
+  color: #fff;
+  background-color: #23b8aa;
+  border-color: #23b8aa;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0), 0 0 0 transparent;
+}
+</style>
+
 <script>
 export default {
   data: function () {
@@ -140,3 +149,5 @@ export default {
   methods: {},
 };
 </script>
+
+/* 23b8aa 18d26e */
