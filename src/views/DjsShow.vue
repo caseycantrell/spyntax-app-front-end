@@ -111,7 +111,13 @@
                       </li>
                     </ul>
 
-                    <a href="#modalBasic" data-bs-toggle="modal" aria-expanded="false" class="btn btn-primary">
+                    <a
+                      href="#modalBasic"
+                      data-bs-toggle="modal"
+                      aria-expanded="false"
+                      class="btn btn-primary"
+                      v-if="isLoggedIn() && getDJId() == currentDJ.id"
+                    >
                       Display QR Code
                     </a>
                   </div>
@@ -208,6 +214,9 @@ export default {
     },
     doPrint: function () {
       window.print();
+    },
+    isLoggedIn: function () {
+      return localStorage.jwt;
     },
   },
 };

@@ -324,6 +324,12 @@
                   <label for="message-text" class="col-form-label">Comments:</label>
                   <textarea class="form-control" id="message-text" v-model="newRequestParams.comments"></textarea>
                 </div>
+                <div>
+                  <p>
+                    Tipping is highly encouraged and increases the chance of your request getting played! Visit the DJ's
+                    profile page for their social media and payment links.
+                  </p>
+                </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="createRequest()">
