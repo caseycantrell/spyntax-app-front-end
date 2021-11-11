@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container position-relative">
           <a class="navbar-brand" href="/">
-            <img src="/assets/img/spyntax1.png" width="180px" alt="" />
+            <img src="/assets/img/spyntax2.png" width="180px" alt="" />
           </a>
 
           <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
