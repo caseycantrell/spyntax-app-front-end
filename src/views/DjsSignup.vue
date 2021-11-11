@@ -86,13 +86,10 @@
                   />
                 </div>
 
-                <!-- <small v-if="newDJParams.password !== newDJParams.password_confirmation">
-                  Passwords must match. -->
-
                 <div class="d-grid">
                   <button class="btn btn-primary" type="submit">Sign Up</button>
                 </div>
-                <small>
+                <small style="color: red">
                   <br />
                   <div v-for="error in errors" v-bind:key="error">{{ error }}</div>
                 </small>

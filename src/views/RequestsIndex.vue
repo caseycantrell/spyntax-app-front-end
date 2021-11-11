@@ -81,7 +81,7 @@
                   <h2 class="my-3 display-3">Requests</h2>
                   <div class="d-flex mb-4 small align-items-center">
                     <a :href="`/djs/${this.$route.query.dj_id}`">
-                      <img :src="currentDJ.image_url" alt="" class="size-60 rounded-circle me-2" />
+                      <img :src="currentDJ.image_url" alt="" class="size-70 rounded-circle me-2" />
                     </a>
                     <span class="text-muted d-inline-block">
                       For
@@ -106,7 +106,7 @@
           <path d="M800 240H0L800 0V240Z" fill="currentColor" />
         </svg>
       </section>
-      <div class="py-5 d-grid">
+      <div class="py-3 d-grid">
         <center>
           <a
             href="#request"
@@ -240,22 +240,24 @@
 
       </ul>  -->
 
-      <div class="container py-7 py-lg-12 position-relative z-index-1">
+      <div class="container py-7 py-lg-3 position-relative z-index-1" v-if="requests.length > 0">
         <ul class="list-group">
           <li class="list-group-item py-7">
             <div class="d-flex align-items-start">
               <div class="flex-grow-1">
                 <div class="d-sm-flex align-items-center" v-for="request in requests" v-bind:key="request.id">
-                  <div class="mb-3 mb-sm-4 flex-grow-1">
+                  <div class="mb-0 mb-sm-4 flex-grow-1">
                     <h4>{{ request.song }}</h4>
                     <p>Comments: {{ request.comments }}</p>
                     <small class="mb-0 small">Status: {{ request.status }}</small>
+
                     <i class="me-1 bi bi-check fs-5 lh-1" v-if="request.status == 'approved'" style="color: green"></i>
                     <i
                       class="me-1 bi bi-x fs-5 lh-1 align-middle"
                       v-if="request.status == 'declined'"
                       style="color: red"
                     ></i>
+                    <br />
                   </div>
                   <div class="">
                     <div class="d-flex align-items-center" v-if="getDJId() == currentDJ.id">
@@ -288,6 +290,7 @@
             <div class="btn-rise-text">Clear All Requests</div>
           </a>
         </center>
+        <br />
       </div>
       <section class="position-relative overflow-hidden position-relative bg-white">
         <svg

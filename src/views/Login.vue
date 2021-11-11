@@ -55,7 +55,7 @@
 
               <div v-for="error in errors" v-bind:key="error">
                 <br />
-                <small>{{ error }}</small>
+                <small style="color: red">{{ error }}</small>
               </div>
               <!---->
               <p class="pt-4 small text-muted">
