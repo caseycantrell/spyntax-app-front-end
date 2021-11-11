@@ -50,7 +50,30 @@
                 </p>
               </div>
             </div>
-
+            <!--Feature column-->
+            <div class="col-12 col-md-6 col-xl-3 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="250">
+              <div class="text-center">
+                <div
+                  class="
+                    mb-4
+                    position-relative
+                    size-70
+                    bg-primary
+                    text-white
+                    rounded-circle
+                    center-both
+                    overflow-hidden
+                  "
+                >
+                  <i class="bi bi-shield-exclamation fs-3 position-relative"></i>
+                </div>
+                <h5 class="mb-3">Keep Your Equipment Safe</h5>
+                <p class="mb-4">
+                  Spyntax takes the hassle and risk out of human interaction for song requests. That means no more spilt
+                  drinks on your equipment, and makes it easy to maintain social distancing.
+                </p>
+              </div>
+            </div>
             <!--Feature column-->
             <div class="col-12 col-md-6 col-xl-3 mb-5 mb-xl-0" data-aos="fade-up" data-aos-delay="200">
               <div class="text-center">
@@ -88,30 +111,6 @@
               </div>
             </div>
 
-            <!--Feature column-->
-            <div class="col-12 col-md-6 col-xl-3 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="250">
-              <div class="text-center">
-                <div
-                  class="
-                    mb-4
-                    position-relative
-                    size-70
-                    bg-primary
-                    text-white
-                    rounded-circle
-                    center-both
-                    overflow-hidden
-                  "
-                >
-                  <i class="bi bi-shield-exclamation fs-3 position-relative"></i>
-                </div>
-                <h5 class="mb-3">Keep Your Equipment Safe</h5>
-                <p class="mb-4">
-                  Spyntax takes the hassle and risk out of human interaction for song requests. That means no more spilt
-                  drinks on your equipment, and makes it easy to maintain social distancing.
-                </p>
-              </div>
-            </div>
             <!--Feature column-->
             <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="250">
               <div class="text-center">

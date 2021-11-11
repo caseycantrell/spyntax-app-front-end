@@ -114,7 +114,7 @@
             aria-expanded="false"
             class="btn btn-primary btn-hover-arrow btn-lg mb-4 me-0"
           >
-            Make a Request
+            Make a Request!
           </a>
         </center>
         <div>
@@ -290,7 +290,11 @@
         </ul>
         <br />
         <center>
-          <a class="rounded-pill btn btn-rise btn-outline-danger m-2" v-on:click="clearRequests()">
+          <a
+            class="rounded-pill btn btn-rise btn-outline-danger m-2"
+            v-if="getDJId() == currentDJ.id"
+            v-on:click="clearRequests()"
+          >
             <div class="btn-rise-bg bg-danger"></div>
             <div class="btn-rise-text">Clear All Requests</div>
           </a>
