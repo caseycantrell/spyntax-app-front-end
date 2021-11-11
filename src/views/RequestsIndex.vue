@@ -248,7 +248,12 @@
                 <div class="d-sm-flex align-items-center" v-for="request in requests" v-bind:key="request.id">
                   <div class="mb-0 mb-sm-4 flex-grow-1">
                     <h4>{{ request.song }}</h4>
-                    <p>Comments: {{ request.comments }}</p>
+                    <p>
+                      <strong>Comments:</strong>
+                      {{ request.comments }}
+                    </p>
+                    <small class="mb-0 small">{{ relativeDate(request.created_at) }}</small>
+                    <br />
                     <small class="mb-0 small">Status: {{ request.status }}</small>
 
                     <i class="me-1 bi bi-check fs-5 lh-1" v-if="request.status == 'approved'" style="color: green"></i>
@@ -329,8 +334,8 @@
                 </div>
                 <div>
                   <p>
-                    Tipping is highly encouraged and increases the chance of your request getting played! Visit the DJ's
-                    profile page for their social media and payment links.
+                    Tipping is highly encouraged and greatly increases the chance of your request getting played! Visit
+                    the DJ's profile page for their social media and payment links.
                   </p>
                 </div>
                 <div class="modal-footer">
