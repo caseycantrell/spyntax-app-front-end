@@ -383,7 +383,7 @@ export default {
       this.requests = response.data;
       this.newRequestParams.dj_id = this.$route.query.dj_id;
     });
-    var cable = ActionCable.createConsumer("wss://spyntax.herokuapp.com/cable");
+    var cable = ActionCable.createConsumer("ws://spyntax.herokuapp.com/cable");
     cable.subscriptions.create("RequestsChannel", {
       connected: () => {
         // Called when the subscription is ready for use on the server
