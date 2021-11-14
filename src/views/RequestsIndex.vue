@@ -178,6 +178,18 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
+/* html {
+  background: #000;
+  filter: invert(1) hue-rotate(180deg);
+}
+img {
+  background: #000;
+  filter: invert(1) hue-rotate(180deg);
+}
+nav {
+  background: #000;
+  filter: invert(1) hue-rotate(180deg);
+} */
 </style>
 <script>
 import axios from "axios";
