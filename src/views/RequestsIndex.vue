@@ -1,71 +1,5 @@
 <template>
   <div class="requests-index">
-    <!-- <h3>{{ currentDJ.name }}</h3>
-    <img :src="currentDJ.image_url" />
-    <p>Info: {{ currentDJ.info }}</p>
-    <p>Website: {{ currentDJ.website }}</p>
-    <p>Email: {{ currentDJ.email }}</p>
-    <p>Email: {{ currentDJ.serato_url }}</p>
-    <p>IG: {{ currentDJ.instagram }}</p>
-    <p>Twitter: {{ currentDJ.twitter }}</p>
-    <p>Facebook: {{ currentDJ.facebook }}</p>
-    <p>Venmo: {{ currentDJ.venmo }}</p>
-    <p>Cashapp: {{ currentDJ.cashapp }}</p>
-    <p>PayPal: {{ currentDJ.paypal }}</p>
-    <br />
-    <button v-on:click="newRequest()">Make Request</button>
-    <br />
-    <div v-if="getDJId() == currentDJ.id">
-      <button v-on:click="clearRequests()" v-on:submit.prevent="clearRequests()">Clear Requests</button>
-    </div>
-    <br />
-    <div v-if="currentSong !== null">
-      <h1>Now Playing:</h1>
-      <small>{{ currentSong }}</small>
-    </div>
-    <br />
-    <br />
-    <button v-on:click="songScrape()">Show Current Song</button>
-    <br />
-    <br />
-    <h2>Current Requests</h2>
-    <div v-for="request in requests" v-bind:key="request.id">
-      <div>
-        <strong>{{ request.song }}</strong>
-      </div>
-      <div>{{ request.comments }}</div>
-      <div>
-        <small>Status: {{ request.status }}</small>
-      </div>
-      <div>
-        <small>{{ relativeDate(request.created_at) }}</small>
-      </div>
-      <br />
-      <div v-if="getDJId() == currentDJ.id">
-        <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'approved')">Approved</button>
-        &nbsp;
-        <button v-if="isLoggedIn()" v-on:click="changeStatus(request, 'declined')">Declined</button>
-      </div>
-      <br />
-      <br />
-    </div> -->
-
-    <!-- <dialog id="new-request">
-      <form method="dialog">
-        <h1>Make a Request</h1>
-        <p>
-          Song:
-          <input type="text" v-model="newRequestParams.song" />
-        </p>
-        <p>
-          Comments:
-          <input type="text" v-model="newRequestParams.comments" />
-        </p>
-        <button v-on:click="createRequest()">Submit</button>
-        <button>Close</button>
-      </form>
-    </dialog> -->
-
     <main>
       <section
         id="article-header"
@@ -117,128 +51,7 @@
             Make a Request!
           </a>
         </center>
-        <!-- <div>
-          <center>
-            <button
-              href="#nowPlaying"
-              data-bs-toggle="modal"
-              aria-expanded="false"
-              class="btn btn-primary btn-circle-ripple p-0 size-50 rounded-pill fs-3 lh-1 center-both me-4 mb-3"
-              v-on:click="songScrape()"
-            >
-              <i class="bi bi-play-fill fs-5 lh-1 align-middle"></i>
-            </button>
-            <strong>Show Current Song</strong>
-          </center>
-        </div> -->
       </div>
-      <!-- Now playing modal -->
-      <!-- <div class="modal fade" id="nowPlaying" tabindex="-1" aria-labelledby="modalBasicLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content border-0">
-            <div class="modal-header border-0 bg-light">
-              <h2 class="modal-title">Now Playing:</h2>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                <i class="bi bi-x fs-5 lh-1"></i>
-              </button>
-            </div>
-            <div class="modal-body py-5 border-0">
-              <div v-if="currentSong !== null">
-                <h4>{{ currentSong }}</h4>
-              </div>
-            </div>
-            <div class="modal-footer bg-light border-0">
-              <button type="button" class="btn btn-white btn-sm" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <section class="position-relative">
-        <div class="container py-7">
-          <div class="row">
-            <div class="col-xl-9 mx-auto" v-for="request in requests" v-bind:key="request.id">
-              <article class="article mb-8">
-                <blockquote
-                  class="
-                    blockquote
-                    rounded-3 rounded-0
-                    p-4
-                    py-lg-2
-                    bg-white
-                    shadow-lg
-                    border-success border-start border-5
-                    my-2
-                  "
-                >
-                  <h2 class="mb-2 display-8 fw-normal">{{ request.song }}</h2>
-                  <p>{{ request.comments }}</p>
-                  <small>{{ relativeDate(request.created_at) }}</small>
-                  <br />
-                  <small>Status: {{ request.status }}</small>
-                  <div class="d-flex pt-2 justify-content-between align-items-center" v-if="getDJId() == currentDJ.id">
-                    <div class="text-end">
-                      <button
-                        class="rounded-pill btn btn-rise btn-outline-success m-2"
-                        v-if="isLoggedIn()"
-                        v-on:click="changeStatus(request, 'approved')"
-                      >
-                        <div class="btn-rise-bg bg-success"></div>
-                        <div class="btn-rise-text">Approve</div>
-                      </button>
-                      <button
-                        class="rounded-pill btn btn-rise btn-outline-danger m-2"
-                        v-if="isLoggedIn()"
-                        v-on:click="changeStatus(request, 'declined')"
-                      >
-                        <div class="btn-rise-bg bg-danger"></div>
-                        <div class="btn-rise-text">Decline</div>
-                      </button>
-                    </div>
-                  </div>
-                </blockquote>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section> -->
-      <!-- <ul class="list-unstyled mb-4 mb-lg-6 px-8">
-        <li class="mb-1 py-3" v-for="request in requests" v-bind:key="request.id">
-          <div class="px-4 py-4 border rounded border-end">
-            <div class="mb-3 justify-content-between">
-              <div class="d-flex align-items-center">
-                <h6 class="mb-0 me-3">{{ request.song }}</h6>
-                <small class="text-muted">{{ relativeDate(request.created_at) }}</small>
-              </div>
-            </div>
-            <p class="mb-0">
-              {{ request.comments }}
-            </p>
-            <br />
-            <div>
-              <small class="text-muted">Status: {{ request.status }}</small>
-            </div>
-            <div class="d-flex pt-2 align-items-center" v-if="getDJId() == currentDJ.id">
-              <button
-                class="btn btn-outline-primary mb-2 me-1"
-                v-if="isLoggedIn()"
-                v-on:click="changeStatus(request, 'approved')"
-              >
-                Approve
-              </button>
-              <button
-                class="btn btn-outline-danger mb-2 me-1"
-                v-if="isLoggedIn()"
-                v-on:click="changeStatus(request, 'declined')"
-              >
-                Decline
-              </button>
-            </div>
-          </div>
-        </li>
-   
-
-      </ul>  -->
 
       <div class="container py-7 py-lg-3 position-relative z-index-1" v-if="requests.length > 0">
         <ul class="list-group">
@@ -332,11 +145,11 @@
             <div class="modal-body">
               <form>
                 <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">Song:</label>
+                  <label for="recipient-name" class="col-form-label"><strong>Song:</strong></label>
                   <input type="text" class="form-control" id="recipient-name" v-model="newRequestParams.song" />
                 </div>
                 <div class="mb-3">
-                  <label for="message-text" class="col-form-label">Comments:</label>
+                  <label for="message-text" class="col-form-label"><strong>Comments:</strong></label>
                   <textarea class="form-control" id="message-text" v-model="newRequestParams.comments"></textarea>
                 </div>
                 <div>
@@ -359,7 +172,13 @@
     </main>
   </div>
 </template>
-
+<style>
+.modal {
+  background-color: #ffffff10;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+</style>
 <script>
 import axios from "axios";
 import Vue2Filters from "vue2-filters";
