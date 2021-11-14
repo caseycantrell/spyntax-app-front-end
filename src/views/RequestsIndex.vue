@@ -117,7 +117,7 @@
             Make a Request!
           </a>
         </center>
-        <div>
+        <!-- <div>
           <center>
             <button
               href="#nowPlaying"
@@ -130,10 +130,10 @@
             </button>
             <strong>Show Current Song</strong>
           </center>
-        </div>
+        </div> -->
       </div>
       <!-- Now playing modal -->
-      <div class="modal fade" id="nowPlaying" tabindex="-1" aria-labelledby="modalBasicLabel" aria-hidden="true">
+      <!-- <div class="modal fade" id="nowPlaying" tabindex="-1" aria-labelledby="modalBasicLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border-0">
             <div class="modal-header border-0 bg-light">
@@ -152,7 +152,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- <section class="position-relative">
         <div class="container py-7">
