@@ -26,11 +26,7 @@
                       <div v-if="currentDJ.website !== ''">
                         <li class="d-flex align-items-stretch mb-2">
                           <i class="bi bi-globe me-2 align-middle text-muted"></i>
-                          <a
-                            :href="`https://www.website.com/${currentDJ.website}`"
-                            target="_blank"
-                            class="small link-hover-decoration"
-                          >
+                          <a :href="`https://${currentDJ.website}`" target="_blank" class="small link-hover-decoration">
                             {{ currentDJ.website }}
                           </a>
                         </li>
@@ -152,7 +148,7 @@
                         <div class="modal-body py-2 border-0">
                           <center>
                             <img
-                              :src="`http://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.netlify.app/requests?dj_id=${currentDJ.id}&size=325x325&margin=20&bgcolor=000&color=fff&ecc=H`"
+                              :src="`https://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.netlify.app/requests?dj_id=${currentDJ.id}&size=325x325&margin=20&bgcolor=000&color=fff&ecc=H`"
                             />
                           </center>
                         </div>
