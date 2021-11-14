@@ -263,6 +263,8 @@
                       style="color: red"
                     ></i>
                     <br />
+                    <br />
+                    <br />
                   </div>
                   <div class="">
                     <div class="d-flex align-items-center" v-if="getDJId() == currentDJ.id">
