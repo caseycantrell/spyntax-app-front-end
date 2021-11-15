@@ -37,7 +37,7 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M800 240H0L800 0V240Z" fill="black" />
+          <path d="M800 240H0L800 0V240Z" fill="currentColor" />
         </svg>
       </section>
       <div class="py-3 d-grid">
@@ -178,15 +178,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-main {
-  background: #000;
-}
-header {
-  background: #000;
-}
-.list-group-item {
-  filter: invert(1) hue-rotate(180deg);
-}
+
 /* img {
   background: #000;
   filter: invert(1) hue-rotate(180deg);

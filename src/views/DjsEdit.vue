@@ -10,7 +10,7 @@
                 <div class="pt-5 d-flex flex-column h-100">
                   <nav class="nav mb-5 nav-pills">
                     <router-link :to="`/djs/${this.editDJParams.id}`" class="nav-link">
-                      <i class="bi bi-person-circle me-2 align-middle"></i>
+                      <i class="bi bi-person-circle me-2 align-middle" color="white"></i>
                       My profile
                     </router-link>
                   </nav>
