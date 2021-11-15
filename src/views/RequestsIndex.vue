@@ -6,7 +6,7 @@
         class="position-relative bg-gradient-secondary jarallax text-white"
         data-jarallax=".3"
       >
-        <img src="assets/img/turntable2.jpeg" alt="" class="jarallax-img opacity-30" />
+        <img src="assets/img/turntable2.jpeg" alt="" class="jarallax-img opacity-50" />
         <div class="container pt-11 pt-lg-14 pb-7 pb-lg-12 position-relative">
           <article class="row">
             <div class="col-lg-10 col-xl-8">
@@ -37,7 +37,7 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M800 240H0L800 0V240Z" fill="currentColor" />
+          <path d="M800 240H0L800 0V240Z" fill="black" />
         </svg>
       </section>
       <div class="py-3 d-grid">
@@ -59,7 +59,7 @@
             <div class="d-flex align-items-start">
               <div class="flex-grow-1">
                 <div class="d-sm-flex align-items-center" v-for="request in requests" v-bind:key="request.id">
-                  <div class="mb-0 mb-sm-4 flex-grow-1">
+                  <div class="mb-0 mb-sm-2 flex-grow-1">
                     <h4>{{ request.song }}</h4>
                     <p>
                       <strong>Comments:</strong>
@@ -178,11 +178,16 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-/* html {
+main {
   background: #000;
+}
+header {
+  background: #000;
+}
+.list-group-item {
   filter: invert(1) hue-rotate(180deg);
 }
-img {
+/* img {
   background: #000;
   filter: invert(1) hue-rotate(180deg);
 }
