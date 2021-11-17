@@ -61,14 +61,17 @@
               <p class="pt-4 small text-muted">
                 Don’t have an account yet?
                 <router-link to="/djssignup" class="ms-2 text-dark fw-semibold link-underline">Sign Up</router-link>
-              </p>
-              <p class="pt-4 small text-muted">
+                <br />
+                <br />
                 Just wanna poke around and check things out without signing up? Try this dummy account:
+              </p>
+
+              <p>
+                <b>Username:</b>
+                djjazzhands
                 <br />
-                <br />
-                Username: djjazzhands
-                <br />
-                Password: password
+                <b>Password:</b>
+                password
               </p>
               <!--Divider-->
             </div>
