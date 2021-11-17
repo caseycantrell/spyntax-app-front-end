@@ -70,7 +70,7 @@
                 <h5 class="mb-3">Keep Your Equipment Safe</h5>
                 <p class="mb-4">
                   Spyntax takes the hassle and risk out of human interaction for song requests. That means no more spilt
-                  drinks on your equipment, and makes it easy to maintain social distancing.
+                  drinks on your equipment, and makes it easier to maintain social distancing.
                 </p>
               </div>
             </div>

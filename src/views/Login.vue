@@ -62,6 +62,14 @@
                 Don’t have an account yet?
                 <router-link to="/djssignup" class="ms-2 text-dark fw-semibold link-underline">Sign Up</router-link>
               </p>
+              <p class="pt-4 small text-muted">
+                Just wanna poke around and check things out without signing up? Try this dummy account:
+                <br />
+                <br />
+                Username: djjazzhands
+                <br />
+                Password: password
+              </p>
               <!--Divider-->
             </div>
           </div>
