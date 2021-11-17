@@ -67,8 +67,8 @@
               </p>
 
               <p>
-                <b>Username:</b>
-                djjazzhands
+                <b>Email:</b>
+                djjazzhands@gmail.com
                 <br />
                 <b>Password:</b>
                 password
