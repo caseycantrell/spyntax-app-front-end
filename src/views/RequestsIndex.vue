@@ -181,7 +181,6 @@
 </style>
 <script>
 import axios from "axios";
-import Vue2Filters from "vue2-filters";
 import dayjs from "dayjs";
 import ActionCable from "actioncable";
 const cheerio = require("cheerio");
@@ -190,7 +189,7 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
 export default {
-  mixins: [Vue2Filters.mixin],
+  mixins: [],
   data: function () {
     return {
       requests: [],
