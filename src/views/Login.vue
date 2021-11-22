@@ -73,7 +73,7 @@
                 <b>Password:</b>
                 password
               </p>
-              <!--Divider-->
+              <!--divider-->
             </div>
           </div>
         </div>
