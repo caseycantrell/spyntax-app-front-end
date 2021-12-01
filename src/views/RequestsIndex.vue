@@ -111,7 +111,7 @@
             v-if="getDJId() == currentDJ.id"
             v-on:click="clearRequests()"
           >
-            <div class="btn-rise-bg bg-danger"></div>
+            <div class="btn btn-danger btn-hover-arrow mb-1"></div>
             <div class="btn-rise-text">Clear All Requests</div>
           </a>
         </center>
