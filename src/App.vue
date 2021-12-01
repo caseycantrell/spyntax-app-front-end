@@ -2,7 +2,7 @@
   <div id="app">
     <section class="position-relative shadow pb-0 pb-lg-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container position-relative">
+        <div class="container-fluid">
           <a class="navbar-brand" href="/">
             <img src="/assets/img/spyntax2.png" width="180px" alt="" />
           </a>
