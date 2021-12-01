@@ -102,8 +102,7 @@
                         <br />
                         <br />
                         <button class="btn btn-danger btn-hover-arrow mb-1" v-on:click="deleteAccount()">
-                          <div class="btn-rise-bg bg-danger"></div>
-                          <div class="btn-rise-text">Delete Account</div>
+                          <span>Delete Account</span>
                         </button>
                       </div>
                     </form>

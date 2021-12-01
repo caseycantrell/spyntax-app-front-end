@@ -106,14 +106,13 @@
         </ul>
         <br />
         <center>
-          <a
-            class="rounded-pill btn btn-rise btn-outline-danger m-2"
+          <button
+            class="btn btn-danger btn-hover-arrow mb-1"
             v-if="getDJId() == currentDJ.id"
             v-on:click="clearRequests()"
           >
-            <div class="btn btn-danger btn-hover-arrow mb-1"></div>
-            <div class="btn-rise-text">Clear All Requests</div>
-          </a>
+            <span>Clear All Requests</span>
+          </button>
         </center>
         <br />
       </div>
