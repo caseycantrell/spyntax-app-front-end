@@ -101,7 +101,7 @@
                         </button>
                         <br />
                         <br />
-                        <button class="rounded-pill btn btn-rise btn-outline-danger m-2" v-on:click="deleteAccount()">
+                        <button class="btn btn-danger btn-hover-arrow mb-1" v-on:click="deleteAccount()">
                           <div class="btn-rise-bg bg-danger"></div>
                           <div class="btn-rise-text">Delete Account</div>
                         </button>
