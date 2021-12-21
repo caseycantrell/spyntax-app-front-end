@@ -136,7 +136,6 @@ export default {
   },
   created: function () {
     axios.get(`/djs/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
       this.editDJParams = response.data;
     });
   },
@@ -151,7 +150,6 @@ export default {
         axios
           .delete("/djs/me")
           .then((response) => {
-            console.log(response.data);
             delete axios.defaults.headers.common["Authorization"];
             localStorage.removeItem("jwt");
             localStorage.removeItem("dj_id");
@@ -181,8 +179,7 @@ export default {
       }
       axios
         .patch("/djs/me", formData)
-        .then((response) => {
-          console.log(response.data);
+        .then((response) =>
           this.editDJParams = {};
           this.$router.push(`/djs/${response.data.id}`);
         })

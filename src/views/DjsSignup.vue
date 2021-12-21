@@ -127,7 +127,6 @@ export default {
       axios
         .post("/djs", this.newDJParams)
         .then((response) => {
-          console.log(response.data);
           window.alert("Account successfully created, please login to continue.");
           this.$router.push("/login");
         })

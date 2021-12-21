@@ -211,7 +211,6 @@ export default {
   },
   created: function () {
     axios.get(`/djs/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
       this.currentDJ = response.data;
     });
   },
