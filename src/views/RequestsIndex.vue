@@ -215,14 +215,10 @@ export default {
       received: (data) => {
         // Called when there's incoming data on the websocket for this channel
         console.log("Data from RequestsChannel:", data);
-        // push the data into the array of messages
-        // if new request creation has .song key
         if (data.song) {
           this.requests.unshift(data);
-          // if requests status is being updated
         } else {
-          // find correct object using data.id and update status using data.status
-          var updatedRequest = this.requests.find((request) => request.id === data.id);
+          let updatedRequest = this.requests.find((request) => request.id === data.id);
           updatedRequest.status = data.status;
         }
       },
@@ -283,7 +279,6 @@ export default {
         const $ = cheerio.load(response.data);
         const song = $(".playlist-trackname").last().text();
         this.currentSong = song;
-        console.log(song);
       });
     },
   },
