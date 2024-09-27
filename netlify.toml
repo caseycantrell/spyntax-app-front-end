@@ -4,13 +4,15 @@
 
 [build.environment]
   NODE_ENV = "production"
-  NODE_VERSION = "22.3.0"
+  NODE_VERSION = "18.16.0"
 
 # Custom caching to speed up builds
 [build.cache]
-  paths = [
-    "node_modules/**/*",  # Cache node_modules between builds
-    "public/**/*",        # Cache the public folder (optional)
-    ".cache/**/*",        # If using vue-cli-service or any custom cache directory
-    "dist/**/*"           # Cache build output for faster redeploys (optional)
-  ]
+paths = [
+  "node_modules/**/*",  # Cache node_modules between builds
+  "public/**/*",        # Cache the public folder (optional)
+  ".cache/**/*",        # If using vue-cli-service or any custom cache directory
+  "dist/**/*",          # Cache build output for faster redeploys (optional)
+  "go/pkg/mod",         # Cache Go modules
+  ".cache/go-build"     # Cache Go build artifacts (optional)
+]
