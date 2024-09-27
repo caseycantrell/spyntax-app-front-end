@@ -182,7 +182,7 @@
 import axios from "axios";
 import dayjs from "dayjs";
 import ActionCable from "actioncable";
-const cheerio = require("cheerio");
+// const cheerio = require("cheerio");
 
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -273,14 +273,14 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
-    songScrape: function () {
-      const url = `https://cors-anywhere.herokuapp.com/${this.currentDJ.serato_url}`;
-      axios.get(url).then((response) => {
-        const $ = cheerio.load(response.data);
-        const song = $(".playlist-trackname").last().text();
-        this.currentSong = song;
-      });
-    },
+    // songScrape: function () {
+    //   const url = `https://cors-anywhere.herokuapp.com/${this.currentDJ.serato_url}`;
+    //   axios.get(url).then((response) => {
+    //     const $ = cheerio.load(response.data);
+    //     const song = $(".playlist-trackname").last().text();
+    //     this.currentSong = song;
+    //   });
+    // },
   },
 };
 </script>
