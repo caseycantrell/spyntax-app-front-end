@@ -10,7 +10,7 @@
   "dependencies": {
     "@vue/cli": "^5.0.8",
     "actioncable": "^5.2.6",
-    "axios": "^0.23.0",
+    "axios": "^1.7.7",
     "bootstrap-icons": "^1.7.0",
     "cheerio": "^1.0.0",
     "core-js": "^3.6.5",
@@ -19,9 +19,9 @@
     "vue-router": "^4.0.13"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-plugin-router": "^5.0.8",
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
