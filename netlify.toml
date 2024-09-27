@@ -1,6 +1,6 @@
 [build]
   publish = "dist"  # Vue builds to the `dist` directory by default
-  command = "npm run build"  # or `yarn build` if you're using Yarn
+  command = "export PATH=./node_modules/.bin:$PATH && npm run build"
 
 [build.environment]
   NODE_ENV = "production"
