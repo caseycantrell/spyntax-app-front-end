@@ -1,0 +1,16 @@
+[build]
+  publish = "dist"  # Vue builds to the `dist` directory by default
+  command = "npm run build"  # or `yarn build` if you're using Yarn
+
+[build.environment]
+  NODE_ENV = "production"
+  NODE_VERSION = "22.3.0"
+
+# Custom caching to speed up builds
+[build.cache]
+  paths = [
+    "node_modules/**/*",  # Cache node_modules between builds
+    "public/**/*",        # Cache the public folder (optional)
+    ".cache/**/*",        # If using vue-cli-service or any custom cache directory
+    "dist/**/*"           # Cache build output for faster redeploys (optional)
+  ]
