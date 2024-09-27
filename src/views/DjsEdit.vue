@@ -149,7 +149,7 @@ export default {
       if (confirm("Are you sure you want to delete your account?")) {
         axios
           .delete("/djs/me")
-          .then((response) => {
+          .then(() => {
             delete axios.defaults.headers.common["Authorization"];
             localStorage.removeItem("jwt");
             localStorage.removeItem("dj_id");
@@ -179,7 +179,7 @@ export default {
       }
       axios
         .patch("/djs/me", formData)
-        .then((response) =>
+        .then((response) => {
           this.editDJParams = {};
           this.$router.push(`/djs/${response.data.id}`);
         })
