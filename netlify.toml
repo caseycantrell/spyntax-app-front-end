@@ -1,11 +1,6 @@
 [build]
-command: npm install && npm run build
-commandOrigin: config
-environment:
-  - NODE_ENV
-  - NODE_VERSION
-publish: /opt/build/repo/dist
-publishOrigin: config
+  command = "npm install && npm run build"
+  publish = "dist"
 
 [build.environment]
   NODE_ENV = "production"
