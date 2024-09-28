@@ -1,5 +1,5 @@
 <template>
-  <body class="bg-dark text-white">
+  <div class="bg-dark text-white">
     <!--Main content-->
     <main>
       <!--page-hero--->
@@ -139,7 +139,7 @@
         </div>
       </section>
     </main>
-  </body>
+  </div>
 </template>
 
 <style>
@@ -160,5 +160,3 @@ export default {
   methods: {},
 };
 </script>
-
-/* 23b8aa 18d26e */
