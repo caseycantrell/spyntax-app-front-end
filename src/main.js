@@ -1,8 +1,9 @@
-import Vue from "vue";
-import { createApp } from 'vue'
+import { createApp } from 'vue'; // Import from Vue 3
 import App from "./App.vue";
 import axios from "axios";
+import router from './router';
 
+// Configure Axios
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://spyntax.herokuapp.com";
 
@@ -11,6 +12,5 @@ if (jwt) {
   axios.defaults.headers.common["Authorization"] = "Bearer " + jwt;
 }
 
-Vue.config.productionTip = false;
-
-createApp(App).mount('#app')
+// Create Vue 3 app and mount it
+createApp(App).use(router).mount('#app');

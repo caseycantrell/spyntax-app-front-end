@@ -1,5 +1,4 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router'; // Vue 3 syntax
 import Home from "../views/Home.vue";
 import DjsSignup from "../views/DjsSignup.vue";
 import Login from "../views/Login.vue";
@@ -8,7 +7,7 @@ import RequestsIndex from "../views/RequestsIndex.vue";
 import DjsShow from "../views/DjsShow.vue";
 import DjsEdit from "../views/DjsEdit.vue";
 
-Vue.use(VueRouter);
+// No need for Vue.use(VueRouter) in Vue 3
 
 const routes = [
   {
@@ -48,9 +47,9 @@ const routes = [
   },
 ];
 
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+// Use `createRouter` and `createWebHistory` for Vue 3
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 

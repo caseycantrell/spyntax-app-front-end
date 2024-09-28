@@ -27,19 +27,19 @@
               <li class="nav-item me-4">
                 <router-link to="/" class="nav-link">Home</router-link>
               </li>
-              <li v-if="isLoggedIn()" class="nav-item me-4">
-                <router-link :to="`/requests?dj_id=${getDJId()}`" class="nav-link">Requests</router-link>
+              <li v-if="isLoggedIn" class="nav-item me-4">
+                <router-link :to="`/requests?dj_id=${djId}`" class="nav-link">Requests</router-link>
               </li>
-              <li v-if="isLoggedIn()" class="nav-item me-4">
-                <router-link :to="`/djs/${getDJId()}`" class="nav-link">Profile</router-link>
+              <li v-if="isLoggedIn" class="nav-item me-4">
+                <router-link :to="`/djs/${djId}`" class="nav-link">Profile</router-link>
               </li>
-              <li v-if="!isLoggedIn()" class="nav-item me-4">
+              <li v-if="!isLoggedIn" class="nav-item me-4">
                 <router-link to="/djssignup" class="nav-link">Signup</router-link>
               </li>
-              <li v-if="!isLoggedIn()" class="nav-item me-4">
+              <li v-if="!isLoggedIn" class="nav-item me-4">
                 <router-link to="/login" class="nav-link">Login</router-link>
               </li>
-              <li v-if="isLoggedIn()" class="nav-item me-4">
+              <li v-if="isLoggedIn" class="nav-item me-4">
                 <router-link to="/logout" class="nav-link">Logout</router-link>
               </li>
             </ul>
@@ -53,14 +53,15 @@
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {};
   },
-  methods: {
-    isLoggedIn: function () {
-      return localStorage.jwt;
+  computed: {
+    // Using computed properties to optimize performance
+    isLoggedIn() {
+      return !!localStorage.jwt; // Return boolean
     },
-    getDJId: function () {
+    djId() {
       return localStorage.dj_id;
     },
   },
