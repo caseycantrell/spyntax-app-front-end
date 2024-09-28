@@ -1,6 +1,7 @@
 [build]
-  publish = "dist"  # Vue builds to the dist directory by default
-  command = "npm run build"
+  command = "npm install -g @vue/cli-service && npm install && npm run build"
+  publish = "dist"
+
 
 [build.environment]
   NODE_ENV = "production"
