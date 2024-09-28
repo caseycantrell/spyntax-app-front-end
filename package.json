@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "npm install @vue/cli-service"
   },
   "engines": {
     "node": "18.17.0"
