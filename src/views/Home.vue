@@ -153,6 +153,7 @@
 
 <script>
 import { onMounted } from 'vue';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default {
   setup() {
