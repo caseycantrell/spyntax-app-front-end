@@ -1,6 +1,7 @@
 [build]
   publish = "dist"  # Vue builds to the `dist` directory by default
   command = "npm run build"
+  environment = { NODE_VERSION = "18.17.0" }
 
 [build.environment]
   NODE_ENV = "production"
