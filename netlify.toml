@@ -1,6 +1,7 @@
 [build]
-  command = "echo 'Starting npm install' && npm install && echo 'Starting npm run build' && npm run build"
+  command = "echo 'Starting npm install' && npm install"
   publish = "dist"
+
 
 [build.environment]
   NODE_ENV = "production"
