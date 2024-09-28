@@ -148,7 +148,7 @@
                         <div class="modal-body py-2 border-0">
                           <center>
                             <img
-                              :src="`https://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.netlify.app/requests?dj_id=${currentDJ.id}&size=325x325&margin=20&bgcolor=000&color=fff&ecc=H`"
+                              :src="`https://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.vercel.app/requests?dj_id=${currentDJ.id}&size=325x325&margin=20&bgcolor=000&color=fff&ecc=H`"
                             />
                           </center>
                         </div>

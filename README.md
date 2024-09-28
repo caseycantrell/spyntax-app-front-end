@@ -1,10 +1,10 @@
 # Welcome to Spyntax, an application for making real-time song requests to DJ's.
 
 
-![Spyntax](https://spyntax.netlify.app/assets/img/spyntax2.png)
+![Spyntax](https://spyntax.vercel.app/assets/img/spyntax2.png)
 
 
-Check out the deployed version [here](https://spyntax.netlify.app).
+Check out the deployed version [here](https://spyntax.vercel.app).
 
 ---
 
