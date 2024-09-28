@@ -1,5 +1,5 @@
 [build]
-  publish = "dist"  # Vue builds to the `dist` directory by default
+  publish = "dist"  # Vue builds to the dist directory by default
   command = "npm run build"
 
 [build.environment]
@@ -10,9 +10,8 @@
 [build.cache]
 paths = [
   "node_modules/**/*",  # Cache node_modules between builds
-  "public/**/*",        # Cache the public folder (optional)
-  ".cache/**/*",        # If using vue-cli-service or any custom cache directory
-  "dist/**/*",          # Cache build output for faster redeploys (optional)
-  "go/pkg/mod",         # Cache Go modules
+  ".cache/**/*",        # Cache Vue CLI's cache (if it exists)
+  "public/**/*",        # Cache public folder (optional)
+  "go/pkg/mod",         # Cache Go modules (if you're using Go)
   ".cache/go-build"     # Cache Go build artifacts (optional)
 ]
