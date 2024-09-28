@@ -152,11 +152,14 @@
 </style>
 
 <script>
+import { onMounted } from 'vue';
+
 export default {
-  data: function () {
+  setup() {
+    onMounted(() => {
+    });
+
     return {};
   },
-  created: function () {},
-  methods: {},
 };
 </script>
