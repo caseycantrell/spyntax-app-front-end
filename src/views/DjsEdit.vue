@@ -3,13 +3,12 @@
     <section class="position-relative">
       <div class="container position-relative">
         <div class="overflow-hidden">
-          <!--Profile info header-->
           <div class="position-relative pb-7 pb-lg-12">
             <div class="row">
               <div class="col-lg-9 mx-auto">
                 <div class="pt-5 d-flex flex-column h-100">
                   <nav class="nav mb-5 nav-pills">
-                    <router-link :to="`/djs/${this.editDJParams.id}`" class="nav-link">
+                    <router-link :to="`/djs/${editDJParams.id}`" class="nav-link">
                       <i class="bi bi-person-circle me-2 align-middle"></i>
                       My profile
                     </router-link>
@@ -31,7 +30,7 @@
                                   type="file"
                                   class="size-190"
                                   id="profile_pic"
-                                  v-on:change="setFile($event)"
+                                  @change="setFile($event)"
                                   ref="fileInput"
                                 />
                               </div>
@@ -89,19 +88,19 @@
                             maxlength="500"
                           />
                           <br />
-                          <small v-if="editDJParams.info.length > 150">
+                          <small v-if="editDJParams.info && editDJParams.info.length > 150">
                             {{ 500 - editDJParams.info.length }} characters remaining...
                           </small>
                         </div>
                       </div>
                       <hr class="mt-5 mb-3" />
                       <div class="text-end">
-                        <button class="btn btn-primary btn-hover-arrow mb-1" v-on:click="updateDJ()">
+                        <button class="btn btn-primary btn-hover-arrow mb-1" @click.prevent="updateDJ">
                           <span>Save Changes</span>
                         </button>
                         <br />
                         <br />
-                        <button class="btn btn-danger btn-hover-arrow mb-1" v-on:click="deleteAccount()">
+                        <button class="btn btn-danger btn-hover-arrow mb-1" @click.prevent="deleteAccount">
                           <span>Delete Account</span>
                         </button>
                       </div>
@@ -127,25 +126,38 @@ small {
 import axios from "axios";
 
 export default {
-  data: function () {
+  data() {
     return {
-      editDJParams: {},
+      editDJParams: {
+      name: '',
+      info: '',
+      email: '',
+      website: '',
+      instagram: '',
+      serato_url: '',
+      facebook: '',
+      twitter: '',
+      venmo: '',
+      cashapp: '',
+      paypal: '',
+      image_url: '',
+    },
       errors: [],
       image_file: "",
     };
   },
-  created: function () {
+  created() {
     axios.get(`/djs/${this.$route.params.id}`).then((response) => {
       this.editDJParams = response.data;
     });
   },
   methods: {
-    setFile: function (event) {
+    setFile(event) {
       if (event.target.files.length > 0) {
         this.image_file = event.target.files[0];
       }
     },
-    deleteAccount: function () {
+    deleteAccount() {
       if (confirm("Are you sure you want to delete your account?")) {
         axios
           .delete("/djs/me")
@@ -156,13 +168,12 @@ export default {
             this.$router.push("/djssignup");
           })
           .catch((error) => {
-            this.status = error.response.status;
             this.errors = error.response.data.errors;
           });
       }
     },
-    updateDJ: function () {
-      var formData = new FormData();
+    updateDJ() {
+      const formData = new FormData();
       formData.append("name", this.editDJParams.name);
       formData.append("info", this.editDJParams.info);
       formData.append("email", this.editDJParams.email);

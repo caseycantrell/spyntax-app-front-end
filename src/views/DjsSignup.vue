@@ -91,7 +91,7 @@
                 </div>
                 <small style="color: red">
                   <br />
-                  <div v-for="error in errors" v-bind:key="error">{{ error }}</div>
+                  <div v-for="(error, index) in errors" v-bind:key="index">{{ error }}</div>
                 </small>
               </form>
 
@@ -109,10 +109,11 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
+import { useRouter } from 'vue-router';
 
 export default {
-  data: function () {
+  data() {
     return {
       newDJParams: {
         email: "",
@@ -123,18 +124,43 @@ export default {
     };
   },
   methods: {
-    submit: function () {
+    submit() {
+      const router = useRouter();
+
+      // Basic validation (just for debugging and improvement)
+      if (!this.newDJParams.email || !this.newDJParams.password || !this.newDJParams.password_confirmation) {
+        this.errors = ['All fields are required'];
+        return;
+      }
+
+      if (this.newDJParams.password !== this.newDJParams.password_confirmation) {
+        this.errors = ['Passwords do not match'];
+        return;
+      }
+
+      // Axios POST request
       axios
         .post("/djs", this.newDJParams)
         .then((response) => {
           console.log(response.data);
           window.alert("Account successfully created, please login to continue.");
-          this.$router.push("/login");
+          router.push("/login");
         })
         .catch((error) => {
-          this.errors = error.response.data.errors;
+          // Add debugging for the error response
+          console.error('Error during submission:', error); // This will log the whole error object
+
+          // Check if the error response and error.response.data exist
+          if (error.response && error.response.data) {
+            this.errors = error.response.data.errors;
+          } else {
+            this.errors = ['An unknown error occurred.'];
+          }
         });
     },
   },
 };
 </script>
+
+
+

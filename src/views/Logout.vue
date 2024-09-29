@@ -4,13 +4,18 @@
 
 <script>
 import axios from "axios";
+import { useRouter } from "vue-router";
 
 export default {
-  created: function () {
+  setup() {
+    const router = useRouter(); // Initialize router
+
     delete axios.defaults.headers.common["Authorization"];
     localStorage.removeItem("jwt");
     localStorage.removeItem("dj_id");
-    this.$router.push("/login");
+    router.push("/login");
+
+    return {};
   },
 };
 </script>
