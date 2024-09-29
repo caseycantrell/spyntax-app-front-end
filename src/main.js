@@ -5,7 +5,7 @@ import router from './router';
 
 // Configure Axios
 axios.defaults.baseURL =
-  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://spyntax.herokuapp.com";
+  process.env.NODE_ENV === "development" ? "http://localhost:3002" : "https://spyntax.herokuapp.com";
 
 var jwt = localStorage.getItem("jwt");
 if (jwt) {
