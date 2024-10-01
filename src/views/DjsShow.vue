@@ -163,16 +163,16 @@
                     <div class="row align-items-center">
                       <div class="col-md-6 mb-3">
                         <label class="form-label"><strong>DJ Name</strong></label>
-                        <div class="form-control">{{ currentDJ.name }}</div>
+                        <div class="form-control" style="min-height: 44px;">{{ currentDJ.name }}</div>
                       </div>
                       <div class="col-md-6 mb-3">
-                        <label class="form-label"><strong>Email</strong></label>
-                        <div class="form-control">{{ currentDJ.email }}</div>
+                        <label class="form-label" ><strong>Email</strong></label>
+                        <div class="form-control" style="min-height: 44px;">{{ currentDJ.email }}</div>
                       </div>
 
                       <div class="col-md-8 mb-3">
                         <label class="form-label"><strong>Bio</strong></label>
-                        <div class="form-control">{{ currentDJ.info }}</div>
+                        <div class="form-control" style="min-height: 44px;">{{ currentDJ.info }}</div>
                       </div>
                     </div>
                   </div>

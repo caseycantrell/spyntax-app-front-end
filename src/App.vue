@@ -52,18 +52,25 @@
 </template>
 
 <script>
+import { provide } from "vue";
+
 export default {
   data() {
-    return {};
+    return {
+      isLoggedIn: !!localStorage.getItem("jwt"), // set initial state from localStorage
+      djId: localStorage.getItem("dj_id") || null,
+    };
   },
-  computed: {
-    // Using computed properties to optimize performance
-    isLoggedIn() {
-      return !!localStorage.jwt; // Return boolean
+  methods: {
+    updateLoginState() {
+      this.isLoggedIn = !!localStorage.getItem("jwt");
+      this.djId = localStorage.getItem("dj_id");
     },
-    djId() {
-      return localStorage.dj_id;
-    },
+  },
+  created() {
+    // exxposes the updateLoginState method globally
+    provide("updateLoginState", this.updateLoginState);
+    this.updateLoginState();
   },
 };
 </script>

@@ -84,18 +84,21 @@ export default {
       axios
         .post("/sessions", this.newSessionParams)
         .then((response) => {
-          axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+          // Save JWT and DJ ID to localStorage
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("dj_id", response.data.dj_id);
+
+          // calling this to update the login state reactively
+          this.$root.updateLoginState();
+
           this.$router.push("/");
         })
         .catch((error) => {
           console.log(error.response);
           this.errors = ["Invalid email or password."];
-          this.newSessionParams.email = "";
-          this.newSessionParams.password = "";
         });
     },
   },
 };
 </script>
+

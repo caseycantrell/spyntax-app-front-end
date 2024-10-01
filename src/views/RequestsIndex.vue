@@ -203,7 +203,8 @@ export default {
       this.requests = response.data;
       this.newRequestParams.dj_id = this.$route.query.dj_id;
     });
-    var cable = ActionCable.createConsumer("wss://spyntax.herokuapp.com/cable");
+    const websocketUrl = process.env.NEXT_PUBLIC_WEBSOCKET_URL || "ws://localhost:3002/cable";
+    var cable = ActionCable.createConsumer(websocketUrl);
     cable.subscriptions.create("RequestsChannel", {
       connected: () => {
         // Called when the subscription is ready for use on the server
