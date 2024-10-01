@@ -203,7 +203,7 @@ export default {
       this.requests = response.data;
       this.newRequestParams.dj_id = this.$route.query.dj_id;
     });
-    const websocketUrl = process.env.NEXT_PUBLIC_WEBSOCKET_URL || "ws://localhost:3002/cable";
+    const websocketUrl = process.env.VUE_APP_WEBSOCKET_URL || "ws://localhost:3002/cable";
     var cable = ActionCable.createConsumer(websocketUrl);
     cable.subscriptions.create("RequestsChannel", {
       connected: () => {
