@@ -41,7 +41,7 @@
         </svg>
       </section>
       <div class="py-3 d-grid">
-        <center>
+        <div class="d-flex justify-content-center">
           <a
             href="#request"
             data-bs-toggle="modal"
@@ -50,8 +50,9 @@
           >
             Make a Request!
           </a>
-        </center>
+        </div>
       </div>
+
 
       <div class="container py-7 py-lg-3 position-relative z-index-1" v-if="requests.length > 0">
         <ul class="list-group">
@@ -105,7 +106,7 @@
           </li>
         </ul>
         <br />
-        <center>
+        <div class="d-flex justify-content-center">
           <button
             class="btn btn-danger btn-hover-arrow mb-1"
             v-if="getDJId() == currentDJ.id"
@@ -113,7 +114,7 @@
           >
             <span>Clear All Requests</span>
           </button>
-        </center>
+        </div>
         <br />
       </div>
       <section class="position-relative overflow-hidden position-relative bg-white">
@@ -211,15 +212,14 @@ export default {
     var cable = ActionCable.createConsumer(websocketUrl);
     cable.subscriptions.create("RequestsChannel", {
       connected: () => {
-        // Called when the subscription is ready for use on the server
+        // called when the subscription is ready for use on the server
         console.log("Connected to RequestsChannel");
       },
       disconnected: () => {
-        // Called when the subscription has been terminated by the server
+        // called when the subscription has been terminated by the server
       },
       received: (data) => {
-        // Called when there's incoming data on the websocket for this channel
-        console.log("Data from RequestsChannel:", data);
+        // called when there's incoming data on the websocket for this channel
         if (data.song) {
           this.requests.unshift(data);
         } else {
@@ -252,8 +252,7 @@ export default {
           Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         },
       })
-      .then((response) => {
-        console.log(response.data);
+      .then(() => {
         this.newRequestParams.song = "";
         this.newRequestParams.comments = "";
       })
@@ -289,9 +288,8 @@ export default {
           Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         },
       })
-      .then((response) => {
+      .then(() => {
         request.status = status;
-        console.log(response.data);
       })
       .catch((error) => {
         this.errors = error.response.data.errors;
