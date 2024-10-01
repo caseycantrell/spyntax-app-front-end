@@ -198,8 +198,12 @@ export default {
     };
   },
   created: function () {
-    axios.get(`/requests?dj_id=${this.$route.query.dj_id}`).then((response) => {
-      console.log(response.data);
+    axios.get(`/requests?dj_id=${this.$route.query.dj_id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+    })
+    .then((response) => {
       this.requests = response.data;
       this.newRequestParams.dj_id = this.$route.query.dj_id;
     });
@@ -224,10 +228,14 @@ export default {
         }
       },
     });
-    axios.get(`/djs/${this.$route.query.dj_id}`).then((response) => {
-      console.log(response.data);
-      this.currentDJ = response.data;
-    });
+    axios.get(`/djs/${this.$route.query.dj_id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+    })
+    .then((response) => {
+        this.currentDJ = response.data;
+      });
     // this.songScrape();
   },
   methods: {
@@ -239,15 +247,19 @@ export default {
     },
     createRequest: function () {
       axios
-        .post("/requests", this.newRequestParams)
-        .then((response) => {
-          console.log(response.data);
-          this.newRequestParams.song = "";
-          this.newRequestParams.comments = "";
-        })
-        .catch((error) => {
-          this.errors = error.response.data.errors;
-        });
+      .post("/requests", this.newRequestParams, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        this.newRequestParams.song = "";
+        this.newRequestParams.comments = "";
+      })
+      .catch((error) => {
+        this.errors = error.response.data.errors;
+      });
     },
     isLoggedIn: function () {
       return localStorage.jwt;
@@ -256,23 +268,34 @@ export default {
       return localStorage.dj_id;
     },
     clearRequests: function () {
-      if (confirm("Are you sure you want to clear all requests?")) {
-        axios.delete("/requests/all").then((response) => {
-          console.log(response.data);
+  if (confirm("Are you sure you want to clear all requests?")) {
+        axios.delete("/requests/all", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+          },
+        })
+        .then(() => {
           this.requests = [];
+        })
+        .catch((error) => {
+          console.log(error.response);
         });
       }
     },
     changeStatus: function (request, status) {
       axios
-        .patch(`/requests/${request.id}`, { status: status })
-        .then((response) => {
-          request.status = status;
-          console.log(response.data);
-        })
-        .catch((error) => {
-          this.errors = error.response.data.errors;
-        });
+      .patch(`/requests/${request.id}`, { status: status }, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      })
+      .then((response) => {
+        request.status = status;
+        console.log(response.data);
+      })
+      .catch((error) => {
+        this.errors = error.response.data.errors;
+      });
     },
     // songScrape: function () {
     //   const url = `https://cors-anywhere.herokuapp.com/${this.currentDJ.serato_url}`;

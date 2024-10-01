@@ -147,7 +147,12 @@ export default {
     };
   },
   created() {
-    axios.get(`/djs/${this.$route.params.id}`).then((response) => {
+    axios.get(`/djs/${this.$route.params.id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+    })
+    .then((response) => {
       this.editDJParams = response.data;
     });
   },
