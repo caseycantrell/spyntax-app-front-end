@@ -110,7 +110,6 @@
 
 <script>
 import axios from 'axios';
-import { useRouter } from 'vue-router';
 
 export default {
   data() {
@@ -125,8 +124,6 @@ export default {
   },
   methods: {
     submit() {
-      const router = useRouter();
-
       // Basic validation (just for debugging and improvement)
       if (!this.newDJParams.email || !this.newDJParams.password || !this.newDJParams.password_confirmation) {
         this.errors = ['All fields are required'];
@@ -144,7 +141,7 @@ export default {
         .then((response) => {
           console.log(response.data);
           window.alert("Account successfully created, please login to continue.");
-          router.push("/login");
+          this.$router.push("/login"); // Use this.$router to access the router
         })
         .catch((error) => {
           // Add debugging for the error response
@@ -161,6 +158,7 @@ export default {
   },
 };
 </script>
+
 
 
 
