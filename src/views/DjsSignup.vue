@@ -124,7 +124,7 @@ export default {
   },
   methods: {
     submit() {
-      // Basic validation (just for debugging and improvement)
+      // basic validation (just for debugging and improvement)
       if (!this.newDJParams.email || !this.newDJParams.password || !this.newDJParams.password_confirmation) {
         this.errors = ['All fields are required'];
         return;
@@ -135,19 +135,15 @@ export default {
         return;
       }
 
-      // Axios POST request
       axios
         .post("/djs", this.newDJParams)
-        .then((response) => {
-          console.log(response.data);
+        .then(() => {
           window.alert("Account successfully created, please login to continue.");
-          this.$router.push("/login"); // Use this.$router to access the router
+          this.$router.push("/login");
         })
         .catch((error) => {
-          // Add debugging for the error response
-          console.error('Error during submission:', error); // This will log the whole error object
+          console.error('Error during submission:', error);
 
-          // Check if the error response and error.response.data exist
           if (error.response && error.response.data) {
             this.errors = error.response.data.errors;
           } else {
@@ -158,7 +154,3 @@ export default {
   },
 };
 </script>
-
-
-
-

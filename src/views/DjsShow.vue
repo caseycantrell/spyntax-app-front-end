@@ -133,12 +133,13 @@
                           </button>
                         </div>
                         <div class="modal-body py-2 border-0">
-                          <center>
-                            <img
-                              :src="`https://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.vercel.app/requests?dj_id=${currentDJ.id}&size=325x325&margin=20&bgcolor=000&color=fff&ecc=H`"
-                            />
-                          </center>
-                        </div>
+  <div class="d-flex justify-content-center">
+    <img
+      :src="`https://api.qrserver.com/v1/create-qr-code/?data=https://spyntax.vercel.app/requests?dj_id=${currentDJ.id}&size=325x325&margin=20&bgcolor=000&color=fff&ecc=H`"
+    />
+  </div>
+</div>
+
                         <div class="modal-footer bg-light border-0">
                           <button type="button" class="btn btn-white btn-sm" data-bs-dismiss="modal">Close</button>
                           <button type="button" class="btn btn-primary btn-sm" @click="doPrint">Print</button>
