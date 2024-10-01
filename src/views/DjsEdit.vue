@@ -189,7 +189,11 @@ export default {
         formData.append("image_url", this.image_file);
       }
       axios
-        .patch("/djs/me", formData)
+        .patch("/djs/me", formData, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("jwt"),
+          },
+        })
         .then((response) => {
           this.editDJParams = {};
           this.$router.push(`/djs/${response.data.id}`);
